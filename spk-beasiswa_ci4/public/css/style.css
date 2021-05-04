@@ -1,0 +1,124 @@
+html, body {
+    font-family: poppins !important;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+}
+
+.bg-abu {
+    background-color: #6c757d;
+}
+
+.bg-biru-gr{
+    background: rgb(33,120,255);
+    background: linear-gradient(159.83deg, #2178FF 32.52%, rgba(0, 0, 0, 0.5) 118.87%);;
+}
+
+.text-biru-gr{
+    background: linear-gradient(159.83deg, #2178FF 32.52%, rgba(0, 0, 0, 0.5) 118.87%);;
+}
+
+.vertical-line {
+    border-right: 1px solid#d9d8d7;
+}
+
+.container-fluid {
+    float: left;
+    margin: 0;
+    width: 100%;
+}
+
+#header .container-fluid {
+    padding: 0% 3%;
+}
+
+#main {
+    padding-top: 3em;
+}
+
+#main a {
+    color: #f8f9fa;
+}
+
+.aside {
+    padding-left: 4%;
+}
+
+.content {
+    padding-right: 4%;
+    padding-left: 4%;
+}
+
+.full-height{
+    height: 100vh !important;
+}
+/* .aside a{
+    width: 95%;
+} */
+
+/* .aside ul{
+    margin-top: 1em !important;
+} */
+
+.aside a:hover {
+    background-color: #6c757d;
+    /* width: 95%; */
+    /* height: 100%; */
+}
+
+/* #footer .container-fluid {
+    padding: 3% 15%;
+} */
+
+.text-biru-1 {
+    color: #4B5564 !important;
+}
+
+.text-biru-2 {
+    color: #435573 !important;
+}
+
+@media only screen and (max-width: 575.98px) {
+    /* #main-login .container-fluid .card {
+        width: 90%;
+        margin: 15% auto;
+    }
+
+    #main-login .container-fluid img {
+        width: 30% !important;
+    }
+
+    #main-login .container-fluid .card h2, #main-login .container-fluid .card h4 {
+        font-size: 20px;
+    }
+
+    #header .logo-text {
+        font-size: 17px;
+    }
+
+    #main {
+        padding-top: 8em;
+    } */
+}
+
+@media only screen and (min-width: 576px) and (max-width: 991.98px)  {
+    /* #main-login .container-fluid .card {
+        width: 90%;
+        margin: 15% auto;
+    }
+
+    #main-login .container-fluid img {
+        width: 30% !important;
+    }
+
+    #main-login .container-fluid .card h2, #main-login .container-fluid .card h4 {
+        font-size: 20px;
+    }
+
+    #main {
+        padding-top: 8em;
+    } */
+}
