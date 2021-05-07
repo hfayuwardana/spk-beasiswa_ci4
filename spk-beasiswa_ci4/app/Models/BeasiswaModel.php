@@ -18,10 +18,10 @@ class BeasiswaModel extends Model
     }
 
     public function getBeasiswaForKecocokan(){
-        return $this->db->table($this->table)
-        ->select('tb_beasiswa.nama_beasiswa, tb_beasiswa.nama_penyelenggara, tb_beasiswa.tahun')
-        ->join('tb_kecocokan', 'tb_beasiswa.id_beasiswa = tb_kecocokan.id_beasiswa')
-        ->where(['tb_beasiswa.status' => 'belum'])->get()
+        // return $this->db->query("SELECT * FROM $this->table WHERE id_beasiswa=$id_beasiswa")
+        // ->getResultArray();
+
+        return $this->db->query("SELECT DISTINCT a.id_beasiswa, a.nama_beasiswa, a.nama_penyelenggara, a.tahun, a.kuota, a.status from $this->table a JOIN tb_kecocokan b ON a.id_beasiswa = b.id_beasiswa WHERE a.status='Belum'")
         ->getResultArray();
     }
 

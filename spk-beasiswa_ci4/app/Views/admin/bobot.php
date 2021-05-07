@@ -4,7 +4,7 @@
         <div class="col-lg-12 mx-auto">
             <div class="card shadow p-3 mb-5 bg-white rounded">
                 <div class="card-body mt-1">
-                    <h2 class="font-weight-bold text-biru-1">Data Mahasiswa</h2>
+                    <h2 class="font-weight-bold text-biru-1">Data Bobot</h2>
                     <hr class="mt-5 mb-4">
 
                     <?php if(session()->getFlashdata('success')): ?>
@@ -28,35 +28,32 @@
 
                     <div class="d-flex justify-content-end"><a
                             class="btn btn-primary bg-biru-gr rounded-pill w-25 py-2 font-weight-bold"
-                            href="<?= base_url().'/mahasiswa/createMahasiswa' ?>" role="button"><i
-                                class="fas fa-plus-circle"></i> Tambah Data</a>
+                            href="<?= base_url().'/bobot/createBobot/'.$id_beasiswa.'/'.$id_kriteria; ?>"
+                            role="button"><i class="fas fa-plus-circle"></i> Tambah Bobot</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table mt-4 text-center">
                             <thead class="bg-biru-gr text-white">
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">NIM</th>
-                                    <th scope="col">Nama</th>
+                                    <th scope="col w-25">Keterangan</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1; ?>
-                                <?php foreach($mahasiswa as $mhs): ?>
+                                <?php foreach($bobot as $bbt): ?>
                                 <tr>
                                     <th scope="row"><?= $no++; ?></th>
-                                    <td><?= $mhs['nim']; ?></td>
-                                    <td><?= $mhs['nama_mhs']; ?></td>
+                                    <td class="w-25"><?= $bbt['keterangan']; ?></td>
+                                    <td><?= $bbt['value']; ?></td>
                                     <td>
-                                        <a class="btn btn-success rounded-pill my-1"
-                                            href="<?= base_url() ?>/mahasiswa/detailMahasiswa/<?= $mhs['id_mahasiswa']; ?>"
-                                            role="button"><i class="far fa-eye"></i> Detail</a>
                                         <a class="btn btn-warning rounded-pill text-dark my-1"
-                                            href="<?= base_url() ?>/mahasiswa/editMahasiswa/<?= $mhs['id_mahasiswa']; ?>"
+                                            href="<?= base_url() ?>/bobot/editBobot/<?= $bbt['id_beasiswa']; ?>/<?= $bbt['id_kriteria']; ?>/<?= $bbt['id_bobot']; ?>"
                                             role="button"><i class="far fa-edit"></i> Sunting</a>
                                         <a class="btn btn-danger rounded-pill my-1"
-                                            href="<?= base_url('/AdminController/deleteMahasiswa/'.$mhs['id_mahasiswa']) ?>"
+                                            href="<?= base_url('/AdminController/deleteBobot/'.$bbt['id_beasiswa'].'/'.$bbt['id_kriteria'].'/'.$bbt['id_bobot']) ?>"
                                             role="button"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </td>
                                 </tr>

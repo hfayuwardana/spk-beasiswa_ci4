@@ -168,10 +168,10 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label for="ipk">IPK</label>
-                                    <input type="text" class="form-control rounded" id="ipk" name="ipk"
+                                    <input type="number" class="form-control rounded" id="ipk" name="ipk"
                                         placeholder="Masukkan IPK"
                                         value="<?= ($method == 'edit') ? $mhs['ipk'] : set_value('ipk'); ?>"
-                                        aria-describedby="ipk-help">
+                                        aria-describedby="ipk-help" min=0 step=0.01>
                                     <small id="ipk-help" class="form-text text-muted">
                                         Contoh: 3.99
                                     </small>

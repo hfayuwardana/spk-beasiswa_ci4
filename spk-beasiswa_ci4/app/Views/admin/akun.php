@@ -47,10 +47,10 @@
                                     <th scope="row"><?= $no++; ?></th>
                                     <td><?= $user['username']; ?></td>
                                     <td>
-                                        <a class="btn btn-warning rounded-pill text-dark w-25"
+                                        <a class="btn btn-warning rounded-pill text-dark my-1"
                                             href="<?= base_url() ?>/admin/editAkun/<?= $user['id_akun']; ?>"
                                             role="button"><i class="far fa-edit"></i> Sunting</a>
-                                        <a class="btn btn-danger rounded-pill w-25"
+                                        <a class="btn btn-danger rounded-pill my-1"
                                             href="<?= base_url('/AdminController/deleteAkun/'.$user['id_akun']) ?>"
                                             role="button"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </td>

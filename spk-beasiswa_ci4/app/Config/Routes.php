@@ -61,6 +61,29 @@ $routes->get('/beasiswa/editBeasiswa/(:segment)', 'AdminController::editBeasiswa
 $routes->put('/beasiswa/updateBeasiswa/(:segment)', 'AdminController::updateBeasiswa/$1');
 $routes->delete('/beasiswa/deleteBeasiswa/(:segment)', 'AdminController::deleteBeasiswa/$1');
 $routes->get('/beasiswa/detailBeasiswa/(:segment)', 'AdminController::viewBeasiswa/$1');
+
+// segment 1: id beasiswa, segment 2: id_kriteria
+$routes->get('/kriteria/(:segment)', 'AdminController::viewAllKriteria/$1');
+$routes->get('/kriteria/createKriteria/(:segment)', 'AdminController::createKriteria/$1');
+$routes->post('/kriteria/insertKriteria/(:segment)', 'AdminController::insertKriteria/$1');
+$routes->get('/kriteria/editKriteria/(:segment)/(:segment)', 'AdminController::editKriteria/$1/$2');
+$routes->put('/kriteria/updateKriteria/(:segment)/(:segment)', 'AdminController::updateKriteria/$1/$2');
+$routes->delete('/kriteria/deleteKriteria/(:segment)/(:segment)', 'AdminController::deleteKriteria/$1/$2');
+
+//segment 1: id_beasiswa , segment 2: id_kriteria, segment 3: id_bobot
+$routes->get('/bobot/(:segment)/(:segment)', 'AdminController::viewAllBobot/$1/$2');
+$routes->get('/bobot/createBobot/(:segment)/(:segment)', 'AdminController::createBobot/$1/$2');
+$routes->post('/bobot/insertBobot/(:segment)/(:segment)', 'AdminController::insertBobot/$1/$2');
+$routes->get('/bobot/editBobot/(:segment)/(:segment)/(:segment)', 'AdminController::editBobot/$1/$2/$3');
+$routes->put('/bobot/updateBobot/(:segment)/(:segment)/(:segment)', 'AdminController::updateBobot/$1/$2/$3');
+$routes->delete('/bobot/deleteBobot/(:segment)/(:segment)/(:segment)', 'AdminController::deleteBobot/$1/$2/$3');
+
+//segment 1: id_beasiswa , segment 2: id_mahasiswa
+$routes->get('/kecocokan/beasiswa', 'AdminController::viewBeasiswaPadaKecocokan');
+$routes->get('/kecocokan/mahasiswa/(:segment)', 'AdminController::viewMahasiswaPadaKecocokan/$1');
+$routes->get('/kecocokan/pencocokan/(:segment)/(:segment)', 'AdminController::viewMahasiswaPadaKecocokan/$1/$2');
+$routes->get('/kecocokan/createKecocokan', 'AdminController::createKecocokan');
+$routes->post('/kecocokan/insertKecocokan', 'AdminController::insertBobot');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

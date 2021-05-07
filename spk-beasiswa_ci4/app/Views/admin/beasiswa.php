@@ -36,10 +36,9 @@
                             <thead class="bg-biru-gr text-white">
                                 <tr>
                                     <th scope="col">No.</th>
-                                    <th scope="col">Beasiswa</th>
-                                    <th scope="col">Penyelenggara</th>
+                                    <th scope="col" style="width: 10%;">Beasiswa</th>
+                                    <th scope="col w-25">Penyelenggara</th>
                                     <th scope="col">Tahun</th>
-                                    <th scope="col">Status</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -48,21 +47,20 @@
                                 <?php foreach($beasiswa as $bsw): ?>
                                 <tr>
                                     <th scope="row"><?= $no++; ?></th>
-                                    <td><?= $bsw['nama_beasiswa']; ?></td>
-                                    <td><?= $bsw['nama_penyelenggara']; ?></td>
+                                    <td style="width: 10%;"><?= $bsw['nama_beasiswa']; ?></td>
+                                    <td class="w-25"><?= $bsw['nama_penyelenggara']; ?></td>
                                     <td><?= $bsw['tahun']; ?></td>
-                                    <td><?= $bsw['status']; ?></td>
                                     <td>
-                                        <a class="btn btn-success rounded-pill"
+                                        <a class="btn btn-success rounded-pill my-1"
                                             href="<?= base_url() ?>/beasiswa/detailBeasiswa/<?= $bsw['id_beasiswa']; ?>"
                                             role="button"><i class="far fa-eye"></i> Detail</a>
-                                        <a class="btn btn-warning rounded-pill text-dark"
+                                        <a class="btn btn-warning rounded-pill text-dark my-1"
                                             href="<?= base_url() ?>/beasiswa/editBeasiswa/<?= $bsw['id_beasiswa']; ?>"
-                                            role="button"><i class="far fa-edit"></i> Sunting</a>
-                                        <a class="btn btn-danger rounded-pill"
+                                            role="button"><i class="far fa-edit"></i> Sunting</a><br>
+                                        <a class="btn btn-danger rounded-pill my-1"
                                             href="<?= base_url('/AdminController/deleteBeasiswa/'.$bsw['id_beasiswa']) ?>"
                                             role="button"><i class="far fa-trash-alt"></i> Hapus</a>
-                                        <a class="btn btn-dark rounded-pill"
+                                        <a class="btn btn-dark rounded-pill my-1"
                                             href="<?= base_url() ?>/beasiswa/finishBeasiswa/<?= $bsw['id_beasiswa']; ?>"
                                             role="button"><i class="fas fa-check"></i> Selesai</a>
                                     </td>

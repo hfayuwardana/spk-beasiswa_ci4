@@ -227,4 +227,70 @@ class Validation
 			'decimal' => 'IPK wajib diisi dengan angka desimal saja',
 		],
 	];
+
+	public $insertBeasiswa = [
+		'nama_beasiswa' => 'required|max_length[250]',
+		'nama_penyelenggara' => 'required|max_length[250]',
+		'tahun' => 'required',
+		'kuota' => 'required|numeric',
+	];
+
+	public $insertBeasiswa_errors = [
+		'nama_beasiswa' => [
+			'required' => 'Anda wajib mengisi bagian nama beasiswa',
+			'max_length' => 'Jumlah maksimal karakter pada nama beasiswa adalah 250 karakter',
+		],
+
+		'nama_penyelenggara' => [
+			'required' => 'Anda wajib mengisi bagian nama penyelenggara',
+			'max_length' => 'Jumlah maksimal karakter pada nama penyelenggara adalah 250 karakter',
+		],
+
+		'tahun' => [
+			'required' => 'Anda wajib mengisi bagian tahun',
+		],
+
+		'kuota' => [
+			'required' => 'Anda wajib mengisi bagian kuota',
+		],
+	];
+
+	public $insertKriteria = [
+		'nama_kriteria' => 'required|max_length[50]',
+		'sifat' => 'required',
+		'bobot' => 'required|decimal',
+	];
+
+	public $insertKriteria_errors = [
+		'nama_kriteria' => [
+			'required' => 'Anda wajib mengisi bagian nama kriteria',
+			'max_length' => 'Jumlah maksimal karakter pada nama kriteria adalah 50 karakter',
+		],
+
+		'sifat' => [
+			'required' => 'Anda wajib mengisi bagian sifat',
+		],
+
+		'bobot' => [
+			'required' => 'Anda wajib mengisi bagian bobot',
+			'decimal' => 'Kriteria wajib diisi dengan angka desimal saja',
+		],
+	];
+
+	public $insertBobot = [
+		'keterangan' => 'required|max_length[50]',
+		'value' => 'required|decimal',
+	];
+	
+	public $insertBobot_errors = [
+		'keterangan' => [
+			'required' => 'Anda wajib mengisi bagian keterangan',
+			'max_length' => 'Jumlah maksimal karakter pada keterangan adalah 50 karakter',
+		],
+
+		'value' => [
+			'required' => 'Anda wajib mengisi bagian value',
+			'decimal' => 'Bobot wajib diisi dengan angka desimal saja',
+		],
+	];
 }
