@@ -81,6 +81,17 @@ html, body {
     color: #435573 !important;
 }
 
+.card-body {
+    padding-left: 4.5em !important;
+    padding-right: 4.5em !important;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+
+.btn-lihatKriteria {
+    background-color: #4B5564;
+}
+
 @media only screen and (max-width: 575.98px) {
     /* #main-login .container-fluid .card {
         width: 90%;
