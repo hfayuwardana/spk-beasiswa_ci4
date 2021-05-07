@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2021 at 10:18 AM
+-- Generation Time: May 07, 2021 at 05:21 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -72,7 +72,8 @@ CREATE TABLE `tb_beasiswa` (
 
 INSERT INTO `tb_beasiswa` (`id_beasiswa`, `nama_beasiswa`, `nama_penyelenggara`, `tahun`, `kuota`, `status`) VALUES
 (1, 'BNI Ceria', 'Bank BNI', 2021, 15, 'Belum'),
-(2, 'Djarum', 'PT Djarum', 2020, 12, 'Belum');
+(2, 'Djarum', 'PT Djarum', 2020, 12, 'Belum'),
+(4, 'Indonesia Cerdas', 'Persatuan Pemuda Indonesia', 2020, 6, 'Belum');
 
 -- --------------------------------------------------------
 
@@ -101,13 +102,17 @@ INSERT INTO `tb_bobot` (`id_bobot`, `id_beasiswa`, `id_kriteria`, `value`, `kete
 (6, 1, 2, 2, '5-6'),
 (7, 1, 2, 3, '7-8'),
 (8, 1, 3, 1, '< 500.000'),
-(9, 1, 3, 2, '500.000 - 1.000.000'),
+(9, 1, 3, 2, '500.001 - 1.000.000'),
 (10, 1, 3, 3, '1.000.001 - 1.499.999'),
 (11, 1, 3, 4, '>= 1.500.000'),
 (12, 1, 4, 1, '0-1'),
 (13, 1, 4, 2, '2-3'),
 (14, 1, 4, 3, '4-5'),
-(15, 1, 4, 4, '>=6');
+(15, 1, 4, 4, '>=6'),
+(17, 4, 9, 1, '2.00 - 2.50'),
+(18, 4, 9, 2, '2.51 - 3.00'),
+(19, 4, 9, 3, '3.01 - 3.50'),
+(21, 4, 9, 4, '3.51 - 4.00');
 
 -- --------------------------------------------------------
 
@@ -166,7 +171,7 @@ INSERT INTO `tb_kecocokan` (`id_kecocokan`, `id_beasiswa`, `id_kriteria`, `id_ma
 CREATE TABLE `tb_kriteria` (
   `id_kriteria` int(11) NOT NULL,
   `nama_kriteria` varchar(50) NOT NULL,
-  `sifat` enum('max','min') NOT NULL,
+  `sifat` enum('Max','Min') NOT NULL,
   `bobot` double NOT NULL,
   `id_beasiswa` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -176,14 +181,18 @@ CREATE TABLE `tb_kriteria` (
 --
 
 INSERT INTO `tb_kriteria` (`id_kriteria`, `nama_kriteria`, `sifat`, `bobot`, `id_beasiswa`) VALUES
-(1, 'IPK', 'max', 0.6, 1),
-(2, 'Semester', 'min', 0.2, 1),
-(3, 'Penghasilan Orangtua', 'min', 0.1, 1),
-(4, 'Jumlah Saudara', 'max', 0.1, 1),
-(5, 'IPK', 'max', 0.5, 2),
-(6, 'Semester', 'min', 0.2, 2),
-(7, 'Penghasilan Orangtua', 'min', 0.15, 2),
-(8, 'Jumlah Saudara', 'max', 0.15, 2);
+(1, 'IPK', 'Max', 0.6, 1),
+(2, 'Semester', 'Min', 0.2, 1),
+(3, 'Penghasilan Orangtua', 'Min', 0.1, 1),
+(4, 'Jumlah Saudara', 'Max', 0.1, 1),
+(5, 'IPK', 'Max', 0.5, 2),
+(6, 'Semester', 'Min', 0.2, 2),
+(7, 'Penghasilan Orangtua', 'Min', 0.15, 2),
+(8, 'Jumlah Saudara', 'Max', 0.15, 2),
+(9, 'IPK', 'Max', 0.36, 4),
+(10, 'Semester', 'Min', 0.14, 4),
+(11, 'Penghasilan Ortu', 'Min', 0.3, 4),
+(14, 'Jumlah Saudara', 'Max', 0.2, 4);
 
 -- --------------------------------------------------------
 
@@ -283,13 +292,13 @@ ALTER TABLE `tb_akun`
 -- AUTO_INCREMENT for table `tb_beasiswa`
 --
 ALTER TABLE `tb_beasiswa`
-  MODIFY `id_beasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_beasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_bobot`
 --
 ALTER TABLE `tb_bobot`
-  MODIFY `id_bobot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_bobot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tb_hasil`
@@ -307,7 +316,7 @@ ALTER TABLE `tb_kecocokan`
 -- AUTO_INCREMENT for table `tb_kriteria`
 --
 ALTER TABLE `tb_kriteria`
-  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tb_mahasiswa`
