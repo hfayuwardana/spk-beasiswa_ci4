@@ -4,7 +4,7 @@
         <div class="col-lg-12 mx-auto">
             <div class="card shadow p-3 mb-5 bg-white rounded">
                 <div class="card-body mt-1">
-                    <h2 class="font-weight-bold text-biru-1">Data Beasiswa pada Kecocokan</h2>
+                    <h2 class="font-weight-bold text-biru-1">Data Beasiswa pada Hasil</h2>
                     <hr class="mt-5 mb-4">
 
                     <?php if(session()->getFlashdata('success')): ?>
@@ -25,12 +25,6 @@
                         </button>
                     </div>
                     <?php endif; ?>
-
-                    <div class="d-flex justify-content-end"><a
-                            class="btn btn-primary bg-biru-gr rounded-pill w-25 py-2 font-weight-bold"
-                            href="<?= base_url().'/kecocokan/createKecocokan'; ?>" role="button"><i
-                                class="fas fa-plus-circle"></i> Tambah Data</a>
-                    </div>
                     <div class="table-responsive">
                         <table class="table mt-4 text-center">
                             <thead class="bg-biru-gr text-white">
@@ -54,8 +48,8 @@
                                     <td><?= $bsw['kuota']; ?></td>
                                     <td>
                                         <a class="btn btn-success rounded-pill my-1"
-                                            href="<?= base_url() ?>/kecocokan/mahasiswa/<?= $bsw['id_beasiswa']; ?>"
-                                            role="button"><i class="far fa-eye"></i> Detail</a><br>
+                                            href="<?= base_url() ?>/hasil/<?= $bsw['id_beasiswa']; ?>" role="button"><i
+                                                class="far fa-eye"></i> Detail</a><br>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>

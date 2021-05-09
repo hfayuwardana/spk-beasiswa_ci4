@@ -14,6 +14,11 @@ class BobotModel extends Model
         ->getResultArray();
     }
 
+    public function getBobotByBeasiswa($id_beasiswa){
+        return $this->db->query("SELECT * FROM $this->table WHERE id_beasiswa=$id_beasiswa")
+        ->getResultArray();
+    }
+
     public function getBobotById($id_bobot){
         return $this->getWhere(['id_bobot' => $id_bobot])->getRowArray();
     }

@@ -17,18 +17,21 @@ class BeasiswaModel extends Model
         return $this->getWhere(['id_beasiswa' => $id_beasiswa])->getRowArray();
     }
 
-    public function getBeasiswaForKecocokan(){
-        // return $this->db->query("SELECT * FROM $this->table WHERE id_beasiswa=$id_beasiswa")
-        // ->getResultArray();
+    public function getBeasiswaForInsertKecocokan(){
+        return $this->db->query("SELECT id_beasiswa, nama_beasiswa, nama_penyelenggara, tahun from $this->table WHERE status='Belum'")
+        ->getResultArray();
+    }
 
+    public function getBeasiswaForKecocokan(){
         return $this->db->query("SELECT DISTINCT a.id_beasiswa, a.nama_beasiswa, a.nama_penyelenggara, a.tahun, a.kuota, a.status from $this->table a JOIN tb_kecocokan b ON a.id_beasiswa = b.id_beasiswa WHERE a.status='Belum'")
         ->getResultArray();
     }
 
     public function getBeasiswaForHasil(){
-        return $this->db->table($this->table)
-        ->select('tb_beasiswa.nama_beasiswa, tb_beasiswa.nama_penyelenggara, tb_beasiswa.tahun')
-        ->join('tb_hasil', 'tb_beasiswa.id_beasiswa = tb_hasil.id_beasiswa')->get()
+        // return $this->db->query("SELECT DISTINCT a.id_beasiswa, a.nama_beasiswa, a.nama_penyelenggara, a.tahun, a.kuota, a.status from $this->table a JOIN tb_hasil b ON a.id_beasiswa = b.id_beasiswa")
+        // ->getResultArray();
+
+        return $this->db->query("SELECT id_beasiswa, nama_beasiswa, nama_penyelenggara, tahun, kuota, status from $this->table")
         ->getResultArray();
     }
 

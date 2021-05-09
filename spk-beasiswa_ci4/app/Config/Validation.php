@@ -7,6 +7,7 @@ use CodeIgniter\Validation\FileRules;
 use CodeIgniter\Validation\FormatRules;
 use CodeIgniter\Validation\Rules;
 use App\Validation\AkunRules;
+use App\Validation\KecocokanRules;
 
 class Validation
 {
@@ -26,6 +27,7 @@ class Validation
 		FileRules::class,
 		CreditCardRules::class,
 		AkunRules::class,
+		KecocokanRules::class,
 	];
 
 	/**
@@ -291,6 +293,42 @@ class Validation
 		'value' => [
 			'required' => 'Anda wajib mengisi bagian value',
 			'decimal' => 'Bobot wajib diisi dengan angka desimal saja',
+		],
+	];
+
+	public $tampilKecocokan = [
+		'beasiswa' => 'required',
+		'mahasiswa' => 'required',
+	];
+
+	public $tampilKecocokan_errors = [
+		'beasiswa' => [
+			'required' => 'Anda wajib mengisi bagian beasiswa',
+		],
+
+		'mahasiswa' => [
+			'required' => 'Anda wajib mengisi bagian mahasiswa',
+		],
+	];
+
+	public $insertKecocokan = [
+		'id_beasiswa' => 'required',
+		'id_mahasiswa' => 'required|cekUniqueMahasiswa[id_mahasiswa]',
+		'nilai' => 'validateValue[nilai]',
+	];
+
+	public $insertKecocokan_errors = [
+		'id_beasiswa' => [
+			'required' => 'Anda wajib mengisi bagian beasiswa',
+		],
+
+		'id_mahasiswa' => [
+			'required' => 'Anda wajib mengisi bagian mahasiswa',
+			'cekUniqueMahasiswa' => 'Mahasiswa sudah terdata pada beasiswa ini, silahkan pilih mahasiswa lain.',
+		],
+
+		'nilai' => [
+			'validateValue' => 'Anda wajib mengisi seluruh bagian range kriteria'
 		],
 	];
 }

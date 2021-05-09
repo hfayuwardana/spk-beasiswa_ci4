@@ -29,10 +29,8 @@ class MahasiswaModel extends Model
     }
 
     public function getMahasiswaForKecocokan($id_beasiswa){
-        return $this->db->table($this->table)
-        ->select('tb_mahasiswa.nim, tb_mahasiswa.nama_mhs')
-        ->join('tb_kecocokan', 'tb_mahasiswa.id_mahasiswa = tb_kecocokan.id_mahasiswa')
-        ->where(['id_beasiswa' => $id_beasiswa])->get()
+        return $this->db->query("SELECT DISTINCT a.id_mahasiswa, a.nim, a.nama_mhs FROM $this->table a JOIN tb_kecocokan b ON 
+        a.id_mahasiswa = b.id_mahasiswa WHERE b.id_beasiswa=$id_beasiswa")
         ->getResultArray();
     }
 

@@ -81,9 +81,14 @@ $routes->delete('/bobot/deleteBobot/(:segment)/(:segment)/(:segment)', 'AdminCon
 //segment 1: id_beasiswa , segment 2: id_mahasiswa
 $routes->get('/kecocokan/beasiswa', 'AdminController::viewBeasiswaPadaKecocokan');
 $routes->get('/kecocokan/mahasiswa/(:segment)', 'AdminController::viewMahasiswaPadaKecocokan/$1');
-$routes->get('/kecocokan/pencocokan/(:segment)/(:segment)', 'AdminController::viewMahasiswaPadaKecocokan/$1/$2');
+$routes->get('/kecocokan/(:segment)/(:segment)', 'AdminController::viewKecocokan/$1/$2');
 $routes->get('/kecocokan/createKecocokan', 'AdminController::createKecocokan');
-$routes->post('/kecocokan/insertKecocokan', 'AdminController::insertBobot');
+// $routes->post('/kecocokan/tampilKecocokan/', 'AdminController::tampilKecocokan');
+// segment: nama method
+$routes->post('/kecocokan/insertKecocokan/(:segment)', 'AdminController::insertKecocokan/$1');
+
+$routes->get('/hasil/beasiswa', 'AdminController::viewBeasiswaPadaHasil');
+$routes->get('/hasil/(:segment)', 'AdminController::viewHasilByBeasiswa/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

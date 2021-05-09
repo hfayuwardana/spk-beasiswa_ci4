@@ -9,33 +9,27 @@ class KecocokanModel extends Model
     protected $primaryKey = 'id_kecocokan';
     protected $allowedFields = ['nilai', 'id_beasiswa', 'id_mahasiswa', 'id_kriteria'];
 
-    // public function getKecocokan
+    public function getKecocokan($id_beasiswa, $id_mahasiswa){
+        return $this->db->query("SELECT b.nama_kriteria, a.nilai FROM $this->table a JOIN tb_kriteria b ON a.id_kriteria = b.id_kriteria
+        WHERE a.id_beasiswa = $id_beasiswa AND a.id_mahasiswa = $id_mahasiswa")
+        ->getResultArray();
+    }
 
-    // public function getBobotByKriteria($id_kriteria){
-    //     return $this->db->query("SELECT * FROM $this->table WHERE id_kriteria=$id_kriteria")
-    //     ->getResultArray();
-    // }
+    public function getMahasiswaInKecocokan($id_beasiswa, $id_mahasiswa){
+        return $this->db->query("SELECT id_mahasiswa FROM $this->table WHERE id_beasiswa=$id_beasiswa AND id_mahasiswa=$id_mahasiswa")
+        ->getResultArray();
+    }
 
-    // public function getBobotById($id_bobot){
-    //     return $this->getWhere(['id_bobot' => $id_bobot])->getRowArray();
-    // }
-
-    // public function getBobotForInsertKecocokan($id_beasiswa, $id_kriteria){
-    //     return $this->db->table($this->table)
-    //     ->select('keterangan', 'value')
-    //     ->where(['id_beasiswa' => $id_beasiswa, 'id_kriteria' => $id_kriteria])->get()
-    //     ->getResultArray();
-    // }
-
-    // public function insertDataBobot($data){
-    //     return $this->db->table($this->table)->insert($data);
-    // }
-
-    // public function updateDataBobot($id_bobot, $data){
-    //     return $this->db->table($this->table)->update($data, ['id_bobot' => $id_bobot]);
-    // }
-
-    // public function deleteDataBobot($id_bobot){
-    //     return $this->table($this->table)->delete(['id_bobot' => $id_bobot]);
-    // }
+    public function insertDataKecocokan($data){
+        $i = 0;
+        $query = "INSERT INTO $this->table VALUES ";
+        foreach($data['nilai'] as $nl) {
+            $id_bsw = $data['id_beasiswa'];
+            $id_kriteria = $data['id_kriteria'][$i++];
+            $id_mhs = $data['id_mahasiswa'];
+            $query .= "(NULL, $id_bsw, $id_kriteria, $id_mhs, $nl),";
+        }
+        $sql = rtrim($query, ',');
+        return $this->db->query($sql);
+    }
 }

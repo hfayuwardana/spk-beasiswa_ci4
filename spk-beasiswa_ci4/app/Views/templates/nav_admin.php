@@ -21,7 +21,7 @@
                             <a class="nav-link" href="<?= base_url().'/kecocokan/beasiswa'; ?>">Kecocokan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Hasil Perhitungan</a>
+                            <a class="nav-link" href="<?= base_url().'/hasil/beasiswa'; ?>">Hasil Perhitungan</a>
                         </li>
                     </ul>
                 </div>

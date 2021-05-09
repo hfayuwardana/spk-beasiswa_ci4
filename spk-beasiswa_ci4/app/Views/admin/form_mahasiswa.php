@@ -135,7 +135,7 @@
                                 <div class="form-group">
                                     <label for="gol_darah">Golongan Darah</label>
                                     <select class="form-control rounded" id="gol_darah" name="gol_darah">
-                                        <option disabled selected>-Pilih golongan darah -</option>
+                                        <option disabled selected>- Pilih golongan darah -</option>
                                         <option value="A"
                                             <?= (($method == 'edit') AND ($mhs['gol_darah'] == "A"))  ? 'selected' : (set_value('gol_darah') == 'A' ? 'selected' : '') ; ?>>
                                             A</option>

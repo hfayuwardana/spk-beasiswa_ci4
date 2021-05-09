@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <label for="sifat">Sifat</label>
                                     <select class="form-control rounded" id="sifat" name="sifat">
-                                        <option disabled selected>-Pilih sifat -</option>
+                                        <option disabled selected>- Pilih sifat -</option>
                                         <option value="Min"
                                             <?= (($method == 'edit') AND ($krt['sifat'] == "Min"))  ? 'selected' : (set_value('sifat') == 'Min' ? 'selected' : '') ; ?>>
                                             Min</option>
