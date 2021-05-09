@@ -1,0 +1,614 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+.navv{
+    width: 100%;
+    height: 50px;
+    left: 0px;
+    top: 0px;
+
+    background: #FAFBFD;
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.25);
+}
+
+.menu{
+    width: 80%;
+    height: 37px;
+    margin: auto;
+    padding-top: 13px;
+}
+
+.menu a{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #375F9D;
+    float: right;
+}
+
+.menu a:hover{
+    text-decoration: underline;
+}
+
+.header{
+    width: 100%;
+    height: 350px;
+
+    background: linear-gradient(to bottom, #2178FF, #375F9D);
+}
+
+.header svg{
+    margin-top: 70px;
+}
+
+.welcome{
+    color: #FAFBFD;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding-top: 80px;
+    padding-bottom: 30px;
+}
+
+.welcome h1{
+    font-weight: 800;
+    font-size: 35px;
+}
+
+.welcome h2{
+    font-weight: 700;
+    font-size: 33px;
+}
+
+.infoweb{
+    width: 100%;
+    padding: 10px;
+    margin-top: 80px;
+}
+.infoweb h1{
+    margin-top: 30px;
+    text-align: center;
+    color: #375F9D;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.info{
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.info img{
+    width: 30%;
+}
+
+.info p{
+    font-family: 'Poppins', sans-serif;
+    text-align: justify;
+    width: 45%;
+}
+
+.footer-box{
+    width: 100%;
+    background: #375F9D;
+    font-family: 'Roboto', sans-serif;
+    color: #FAFBFD;
+    padding: 30px;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-box h6{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.spk h3{
+    margin-bottom: 10px;
+}
+
+.kontak h4{
+    margin-bottom: 8px;
+}
+
+.tombol{
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.tombol a{
+    margin-right: 30px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #375F9D;
+    padding: 18px;
+    background: #FAFBFD;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.tombol a:hover{
+    box-shadow: inset -4px -4px 5px rgba(255, 255, 255, 0.5),
+        inset 8px 8px 16px rgba(0, 0, 0, 0.2);
+    text-decoration: underline;
+}
+
+.verifikasi{
+    width: 80%;
+    margin: auto;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+    margin-top: 50px;
+    border-radius: 5px;
+    background-color: #FAFBFD;
+    height: 450px;
+    margin-bottom: 50px;
+}
+
+.verifikasi button{
+    background: linear-gradient(95.37deg, #2279FF 10.44%, #4A5566 96.66%);
+    border-radius: 28.5px;
+    width: 100px;
+    padding: 10px;
+    margin-top: 20px;
+    color: #FAFBFD;
+    float: right;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.verifikasi button:hover{
+    border: 1px solid #375F9D;
+    background: #FAFBFD;
+    color: #375F9D;
+}
+
+.verifikasi h3{
+    background: linear-gradient(159.83deg, #2178FF 32.52%, rgba(0, 0, 0, 0.5) 118.87%);
+    color: #FAFBFD;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 30px;
+}
+
+.verifikasi h4{
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 25px;
+}
+
+.verifikasi form{
+    padding: 20px;
+    padding-top: 0;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 50px;
+    padding-bottom: 40px;
+}
+
+.inputt{
+    display: flex;
+    flex-direction: column;
+}
+
+.verifikasi label{
+    margin-bottom: 7px;
+    margin-left: 10%;
+}
+
+.verifikasi input{
+    margin: auto;
+    width: 80%;
+    height: 32px;
+    padding-left: 10px;
+    border-radius: 30px;
+    margin-bottom: 18px;
+    border: 1px solid #ABABAB;
+}
+
+.bg{
+    background: linear-gradient(159.83deg, #2178FF 32.52%, rgba(0, 0, 0, 0.5) 118.87%);
+}
+
+.detail-box{
+    width: 80%;
+    margin: auto;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+    background-color: #FAFBFD;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    height: 550px;
+}
+
+.detail-box h3{
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #375F9D;
+}
+
+.detail-box hr{
+    width: 96%;
+    margin-bottom: 30px;
+    margin-top: -10px;
+    margin: auto;
+}
+
+.databeasiswa-box{
+    width: 80%;
+    margin: auto;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+    background-color: #FAFBFD;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+}
+
+.databeasiswa-box h3{
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    padding-left: 30px;
+}
+
+.databeasiswa-box hr{
+    width: 96%;
+    margin-bottom: 20px;
+    margin: auto;
+}
+
+.bg2{
+    background: #DAD7D7;
+}
+
+.content{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.ct{
+    width: 30%;
+    height: auto;
+}
+
+.gambar img{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ct h4{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 30px;
+}
+
+.ct h3{
+    color: #375F9D;
+    margin-top: -10px;
+}
+
+.detail-box a{
+    background: linear-gradient(95.37deg, #2279FF 10.44%, #4A5566 96.66%);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 28.5px;
+    padding: 10px;
+    margin-right: 40px;
+    color: #FAFBFD;
+    float: right;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    width: 180px;
+    text-align: center;
+}
+
+.detail-box a:hover{
+    border: 1px solid #375F9D;
+    background: #FAFBFD;
+    color: #375F9D;
+}
+
+.detail-box p{
+    color: #8E8D8D;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+    font-size: smaller;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.lolos-box{
+    width: 80%;
+    margin: auto;
+    box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
+    background-color: #FAFBFD;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.lolos-box table{
+    width: 85%;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    border-radius: 5px;
+}
+
+.lolos-box thead{
+    background: linear-gradient(159.83deg, #2178FF 32.52%, rgba(0, 0, 0, 0.5) 118.87%);
+    color: #FAFBFD;
+}
+
+.lolos-box th{
+    border: none;
+    padding: 10px;
+}
+
+.lolos-box h3{
+    color: #375F9D;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.lolos-box h5{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.databeasiswa-box table{
+    width: 85%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+}
+
+.databeasiswa-box thead{
+    background: linear-gradient(159.83deg, #2178FF 32.52%, rgba(0, 0, 0, 0.5) 118.87%);
+    color: #FAFBFD;
+}
+
+.databeasiswa-box th{
+    border: none;
+    padding: 10px;
+}
+
+.databeasiswa-box h3{
+    color: #375F9D;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.databeasiswa-box input{
+    font-family: 'Roboto', sans-serif;
+    padding: 8px;
+    width: 200px;
+    border-radius: 30px;
+    border: 1px solid #ABABAB;
+    height: 30px;
+    font-size: small;
+}
+
+.databeasiswa-box form{
+    position: relative;
+}
+
+.databeasiswa-box form{
+    float: right;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.fa-search{
+    position: absolute; 
+    top: 7px; 
+    right: 13px; 
+    color: #ABABAB;
+}
+
+.table thead{
+    background-color: linear-gradient(159.83deg, #2178FF 32.52%, rgba(0, 0, 0, 0.5) 118.87%);
+    text-align: center;
+}
+
+.act a{
+    background: linear-gradient(95.37deg, #2279FF 10.44%, #4A5566 96.66%);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 28.5px;
+    padding: 10px;
+    color: #FAFBFD;
+    font-weight: 600;
+    font-size: small;
+    cursor: pointer;
+    text-decoration: none;
+    padding-left: 35px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+.act a:hover{
+    border: 1px solid #375F9D;
+    background: #FAFBFD;
+    color: #375F9D;
+    text-decoration: none;
+}
+
+.fa-eye:hover{
+    color: #375F9D;
+}
+
+.act{
+    position: relative;
+}
+
+.table td{
+    text-align: center;
+}
+
+.fa-eye{
+    position: absolute; 
+    top: 15px;
+    left: 50px;
+    color: #FAFBFD; 
+}
+
+.row{
+    text-align: center;
+}
+
+@media screen and (max-width: 427px){
+    .verifikasi{
+        height: 480px;
+    }
+
+    .verifikasi button{
+        margin-right: 30px;
+    }
+
+    .detail-box{
+        width: 90%;
+        height: 100%;
+        padding-bottom: 10px;
+    }
+
+    .content{
+        flex-direction: column;
+    }
+
+    .ct{
+        width: 85%;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+
+    .info-studi h3{
+        margin-left: -30px;
+        margin-bottom: -20px;
+    }
+
+    .navv{
+        width: 100%;
+    }
+
+    .lolos-box{
+        width: 90%;
+    }
+
+    .databeasiswa-box{
+        width: 90%;
+    }
+
+    .databeasiswa-box table{
+        font-size: xx-small;
+    }
+
+    .act a{
+        font-size: xx-small;
+    }
+
+    .fa-eye{
+        left: 30px;
+    }
+    
+    .databeasiswa-box form{
+        margin-right: 10px;
+    }
+
+    .header{
+        height: 50%;
+    }
+
+    .tombol{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .info{
+        flex-direction: column;
+    }
+
+    .info img{
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+    }
+
+    .info p{
+        margin-top: 30px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .footer-box{
+        padding-left: 30px;
+        margin: auto;
+    }
+
+    .footer{
+        flex-direction: column;
+        padding: 3px;
+        padding-left: -5px;
+    }
+
+    .spk{
+        margin-bottom: 50px;
+    }
+
+    .verif{
+        margin-bottom: 10px;
+    }
+
+    .pengumuman{
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .header svg{
+        margin-top: 0px;
+        position: absolute;
+    }
+
+    .footer-box h6{
+        margin-left: 50px;
+    }
+
+    .welcome{
+        width: 90%;
+        margin: auto;
+    }
+}

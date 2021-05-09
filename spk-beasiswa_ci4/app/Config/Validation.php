@@ -331,4 +331,25 @@ class Validation
 			'validateValue' => 'Anda wajib mengisi seluruh bagian range kriteria'
 		],
 	];
+
+	// VALIDASI MAHASISWA
+	public $verifikasi = [
+		'nim' => 'required',
+		'nama_ibu' => 'required',
+		'tgl_lahir' => 'required',
+	];
+
+	public $verifikasi_errors = [
+		'nim' => [
+			'required' => 'Anda wajib mengisi NIM',
+		],
+
+		'nama_ibu' => [
+			'required' => 'Anda wajib mengisi nama ibu',
+		],
+
+		'tgl_lahir' => [
+			'validateValue' => 'Anda wajib mengisi tanggal lahir'
+		],
+	];
 }

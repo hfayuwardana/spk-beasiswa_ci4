@@ -18,7 +18,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('AdminController');
+$routes->setDefaultController('MahasiswaController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -32,6 +32,17 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// ROUTES MAHASISWA
+$routes->get('/', 'MahasiswaController::index');
+$routes->get('/mhs/verifikasi', 'MahasiswaController::createDataPribadi');
+// $routes->post('/mhs/prosesverifikasi', 'MahasiswaController::cekDataPribadi');
+$routes->post('/mhs/detailMahasiswa', 'MahasiswaController::viewDataPribadi');
+$routes->get('/mhs/beasiswa', 'MahasiswaController::viewPengumumanBeasiswa');
+$routes->get('/mhs/lolos', 'MahasiswaController::viewMahasiswaLolos');
+
+
+
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'AdminController::index');
 $routes->get('/authenticate', 'AdminController::authenticate');
@@ -89,6 +100,11 @@ $routes->post('/kecocokan/insertKecocokan/(:segment)', 'AdminController::insertK
 
 $routes->get('/hasil/beasiswa', 'AdminController::viewBeasiswaPadaHasil');
 $routes->get('/hasil/(:segment)', 'AdminController::viewHasilByBeasiswa/$1');
+
+
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

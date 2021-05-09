@@ -1131,6 +1131,12 @@ class AdminController extends BaseController
 
             // jika isian form TIDAK sesuai dengan persyaratan
             if ($this->form_validation->run($data, 'insertKecocokan') == false) {
+				// jika user belum login
+				if(!isset($_SESSION['isLoggedIn'])) {
+					// redirect untuk melakukan login pada form login
+					return redirect()->to(base_url().'/authenticate');
+				}
+
                 $data = [
                     'method' => 'create',
                     'title' => "Tambah Data Kecocokan",
@@ -1160,6 +1166,12 @@ class AdminController extends BaseController
 
 	// menampilkan tabel mahasiswa yang sudah dicocokkan
 	public function viewMahasiswaPadaKecocokan($id_beasiswa){
+		// jika user belum login
+		if(!isset($_SESSION['isLoggedIn'])) {
+			// redirect untuk melakukan login pada form login
+			return redirect()->to(base_url().'/authenticate');
+		}
+
 		$data = [
 			'mahasiswa' => $this->mahasiswa->getMahasiswaForKecocokan($id_beasiswa),
 			'id_beasiswa' => $id_beasiswa,
@@ -1172,6 +1184,12 @@ class AdminController extends BaseController
 
 	// menampilkan tabel kecocokan yg berisi nama kriteria beserta nilai bobot yg diperoleh oleh suatu mahasiswa
 	public function viewKecocokan($id_beasiswa, $id_mahasiswa){
+		// jika user belum login
+		if(!isset($_SESSION['isLoggedIn'])) {
+			// redirect untuk melakukan login pada form login
+			return redirect()->to(base_url().'/authenticate');
+		}
+
 		$data = [
 			'kecocokan' => $this->kecocokan->getKecocokan($id_beasiswa, $id_mahasiswa),
 		];
@@ -1183,6 +1201,12 @@ class AdminController extends BaseController
 
 	// ----------------------------------------- Bagian Hasil Perhitungan ------------------------------------------
 	public function viewBeasiswaPadaHasil(){
+		// jika user belum login
+		if(!isset($_SESSION['isLoggedIn'])) {
+			// redirect untuk melakukan login pada form login
+			return redirect()->to(base_url().'/authenticate');
+		}
+		
 		$data = [
 			'beasiswa' => $this->beasiswa->getBeasiswaForHasil(),
 		];
@@ -1205,6 +1229,12 @@ class AdminController extends BaseController
 				];
 				$this->hasil->insertHasil($data);
 			}
+		}
+
+		// jika user belum login
+		if(!isset($_SESSION['isLoggedIn'])) {
+			// redirect untuk melakukan login pada form login
+			return redirect()->to(base_url().'/authenticate');
 		}
 
 		$data = [

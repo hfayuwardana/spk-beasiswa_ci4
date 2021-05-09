@@ -17,8 +17,14 @@ class MahasiswaModel extends Model
         return $this->getWhere(['id_mahasiswa' => $id_mahasiswa])->getRowArray();
     }
 
-    public function getMahasiswaByVerif($nim, $tgl_lahir, $nama_ibu){
-        return $this->getWhere(['nim' => $nim, 'tgl_lahir' => $tgl_lahir, 'nama_ibu' => $nama_ibu])->getRowArray();
+    public function getMahasiswaByVerif($data){
+        // return $this->getWhere(['nim' => $nim, 'tgl_lahir' => $tgl_lahir, 'nama_ibu' => $nama_ibu])->getRowArray();
+        $nim = $data['nim'];
+        $nama_ibu = $data['nama_ibu'];
+        $tgl_lahir = $data['tgl_lahir'];
+        
+        return $this->db->query("SELECT nim, nama_mhs, tempat_lahir, tgl_lahir, alamat, gol_darah, nama_ibu, semester, ipk, penghasilan_ortu, jml_saudara FROM $this->table WHERE nim='$nim' AND tgl_lahir='$tgl_lahir' AND nama_ibu LIKE '%$nama_ibu%'")
+        ->getResultArray();
     }
 
     public function getMahasiswaForInsertKecocokan($id_mahasiswa){
