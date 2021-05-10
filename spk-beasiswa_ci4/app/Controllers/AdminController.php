@@ -168,7 +168,7 @@ class AdminController extends BaseController
 	
 		$data = [
 			'username' => $username,
-			'password' => $password,
+			'password' => md5($password),
 		];
 	
 		// jika isian form TIDAK sesuai dengan persyaratan
@@ -232,7 +232,7 @@ class AdminController extends BaseController
 			$password = $this->request->getPost('password');
 
 			$data = [
-				'password' => $password,
+				'password' => md5($password),
 			];
 
 			// jika isian form TIDAK sesuai dengan persyaratan
@@ -677,7 +677,10 @@ class AdminController extends BaseController
 			'status' => 'Selesai',
 		];
 
-		$finish = $this->beasiswa->finishDataBeasiswa($id_beasiswa, $data);
+		$this->beasiswa->updateDataBeasiswa($id_beasiswa, $data);
+		
+		// redirect ke tampilan tabel beasiswa
+		return redirect()->to(base_url().'/beasiswa');
 	}
 
 	public function viewBeasiswa($id_beasiswa){

@@ -9,29 +9,6 @@ class AkunModel extends Model
     protected $primaryKey = 'id_akun';
     protected $allowedFields = ['username', 'password'];
 
-    // public $id_akun;
-    // public $username;
-    // public $password;
-
-    // protected $beforeInsert = ['beforeInsert'];
-    // protected $beforeUpdate = ['beforeUpdate'];
-
-    // protected function beforeInsert(array $data){
-    //     if(!isset($data['data']['password'])){
-    //         $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
-    
-    //         return $data;
-    //     }
-    // }
-
-    // protected function beforeUpdate(array $data){
-    //     if(isset($data['data']['password'])){
-    //         $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
-    
-    //         return $data;
-    //     }
-    // }
-
     public function getAllAkun(){
         return $this->findAll();
     }

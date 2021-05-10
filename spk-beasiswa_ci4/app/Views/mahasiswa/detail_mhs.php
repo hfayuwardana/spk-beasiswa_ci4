@@ -26,13 +26,13 @@
         <hr>
         <div class="content">
             <div class="ct gambar">
-                <img src="<?= base_url(); ?>/../img/profile.png" alt="">
+                <img src="<?= base_url(); ?>/../img/profile.png" alt="user">
             </div>
             <div class="ct personal">
                 <h4 style="margin-top: 10px;">Nama Lengkap</h4>
                 <p><?= $mhs['nama_mhs']; ?></p>
                 <h4>Tempat, Tanggal Lahir</h4>
-                <p><?= $mhs['tempat_lahir']; ?>, <?= $mhs['tgl_lahir']; ?></p>
+                <p><?= $mhs['tempat_lahir']; ?>, <?= date("d-m-Y", strtotime($mhs['tgl_lahir'])); ?></p>
                 <h4>Alamat</h4>
                 <p><?= $mhs['alamat']; ?></p>
                 <h4>Nama Ibu</h4>

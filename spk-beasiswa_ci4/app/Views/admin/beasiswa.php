@@ -61,7 +61,7 @@
                                             href="<?= base_url('/AdminController/deleteBeasiswa/'.$bsw['id_beasiswa']) ?>"
                                             role="button"><i class="far fa-trash-alt"></i> Hapus</a>
                                         <a class="btn btn-dark rounded-pill my-1"
-                                            href="<?= base_url() ?>/beasiswa/finishBeasiswa/<?= $bsw['id_beasiswa']; ?>"
+                                            href="<?= base_url('/AdminController/finishBeasiswa/'.$bsw['id_beasiswa']) ?>"
                                             role="button"><i class="fas fa-check"></i> Selesai</a>
                                     </td>
                                 </tr>

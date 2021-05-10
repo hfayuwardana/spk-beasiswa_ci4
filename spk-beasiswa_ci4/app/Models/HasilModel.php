@@ -78,9 +78,9 @@ class HasilModel extends Model
         ->getResultArray();
     }
 
-    public function getHasilForPengumuman($id_beasiswa){
+    public function getHasilForPengumuman($id_beasiswa, $kuota){
         return $this->db->query("SELECT DISTINCT b.nim, b.nama_mhs FROM $this->table a JOIN tb_mahasiswa b 
-        ON a.id_mahasiswa = b.id_mahasiswa WHERE id_beasiswa = $id_beasiswa LIMIT b.kuota")
+        ON a.id_mahasiswa = b.id_mahasiswa WHERE id_beasiswa = $id_beasiswa ORDER BY nilai DESC LIMIT $kuota")
         ->getResultArray();
     }
 }

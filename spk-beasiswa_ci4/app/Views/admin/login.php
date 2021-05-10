@@ -13,6 +13,8 @@
     <!-- Google Font CDN -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,800;1,400&display=swap"
+        rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/../css/style.css">
@@ -26,12 +28,18 @@
     <section id="main-login">
         <div class="container-fluid">
             <div class="row full-height">
-                <div class="col-lg-7 bg-biru-gr shadow-lg p-5">
+                <div class="col-lg-7 bg-biru-gr shadow-lg p-5 text-center">
+                    <h1 class="mt-5 text-white font-weight-bold" style="font-family: 'Montserrat', sans-serif;">Selamat
+                        Datang!</h1>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="<?= base_url(); ?>/../img/ic.png" alt="icon-spk">
+                    </div>
+
                 </div>
                 <div class="col-lg-5 p-5 my-auto">
                     <div class="row my-4">
                         <div class="col-lg-12 text-center">
-                            <h1 class="card-title font-weight-bold">Login Admin</h1>
+                            <h2 class="card-title font-weight-bold">Login Admin</h2>
                         </div>
                     </div>
                     <div class="row">

@@ -87,7 +87,9 @@ class MahasiswaController extends BaseController
     }
 
     public function viewMahasiswaLolos($id_beasiswa){
-        $hasil = $this->hasil->getHasilForPengumuman($id_beasiswa);
+        $kuota = $this->beasiswa->getKuotaByBeasiswa($id_beasiswa);
+        $k = $kuota[0]['kuota'];
+        $hasil = $this->hasil->getHasilForPengumuman($id_beasiswa, $k);
 
         $data = [
             'hasil' => $hasil,

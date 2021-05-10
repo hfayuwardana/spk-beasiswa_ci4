@@ -11,10 +11,8 @@ class AkunRules{
 		if(!$akun){
 			return false;
 		}
-		// return password verify dari password input user dan hased password di db
-        // var_dump(password_verify($data['password'], $akun['password']));
-		// return password_verify($data['password'], $akun['password']);
-        return $data['password']=== $akun['password'];
+		// return apakah hashed password input user sesuai dengan password yang terdata di db
+        return md5($data['password']) === $akun['password'];
 	}
 }
 

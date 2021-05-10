@@ -41,12 +41,8 @@ $routes->get('/mhs/beasiswa', 'MahasiswaController::viewPengumumanBeasiswa');
 $routes->get('/mhs/cariBeasiswa', 'MahasiswaController::cariPengumumanBeasiswa');
 $routes->get('/mhs/lolos/(:segment)', 'MahasiswaController::viewMahasiswaLolos/$1');
 
-
-
-// $routes->get('/', 'Home::index');
 $routes->get('/index', 'AdminController::index');
 $routes->get('/authenticate', 'AdminController::authenticate');
-// $routes->get('/home', 'AdminController::index');
 $routes->get('/home', 'AdminController::home');
 $routes->post('/login', 'AdminController::login');
 
@@ -72,6 +68,7 @@ $routes->get('/beasiswa/editBeasiswa/(:segment)', 'AdminController::editBeasiswa
 $routes->put('/beasiswa/updateBeasiswa/(:segment)', 'AdminController::updateBeasiswa/$1');
 $routes->delete('/beasiswa/deleteBeasiswa/(:segment)', 'AdminController::deleteBeasiswa/$1');
 $routes->get('/beasiswa/detailBeasiswa/(:segment)', 'AdminController::viewBeasiswa/$1');
+$routes->post('/beasiswa/finishBeasiswa/(:segment)', 'AdminController::finishBeasiswa/$1');
 
 // segment 1: id beasiswa, segment 2: id_kriteria
 $routes->get('/kriteria/(:segment)', 'AdminController::viewAllKriteria/$1');
@@ -99,10 +96,6 @@ $routes->post('/kecocokan/insertKecocokan/(:segment)', 'AdminController::insertK
 
 $routes->get('/hasil/beasiswa', 'AdminController::viewBeasiswaPadaHasil');
 $routes->get('/hasil/(:segment)', 'AdminController::viewHasilByBeasiswa/$1');
-
-
-
-
 
 /*
  * --------------------------------------------------------------------

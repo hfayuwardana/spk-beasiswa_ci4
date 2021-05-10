@@ -47,7 +47,7 @@
         <h1>Informasi Web</h1>
 
         <div class="info">
-            <img src="gambar/book.png" alt="">
+            <img src="<?= base_url(); ?>/../img/book.png" alt="">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                 Rerum deleniti harum aperiam, aliquid maxime distinctio temporibus
                 soluta, quasi, quibusdam quia ea est assumenda non excepturi? Recusandae

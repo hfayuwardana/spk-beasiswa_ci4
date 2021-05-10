@@ -52,7 +52,6 @@
                     <td><?= $bsw['nama_penyelenggara']; ?></td>
                     <td><?= $bsw['tahun']; ?></td>
                     <td class="act">
-                        <i class="fas fa-eye"></i>
                         <a href="<?= base_url().'/mhs/lolos/'.$bsw['id_beasiswa']; ?>">Detail</a>
                     </td>
                 </tr>

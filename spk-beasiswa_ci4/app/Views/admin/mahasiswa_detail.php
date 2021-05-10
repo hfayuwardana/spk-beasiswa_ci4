@@ -8,7 +8,7 @@
                     <hr class="my-5">
                     <div class="row">
                         <div class="col-lg-4 text-center">
-                            <i class="fas fa-user-alt fa-8x"></i>
+                            <img src="<?= base_url(); ?>/../img/profile.png" alt="user" style="width: 100%;">
                         </div>
                         <div class="col-lg-8">
                             <div class="row">
@@ -23,7 +23,8 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <h6 class="font-weight-bold m-0">Tempat, Tanggal Lahir</h6>
-                                    <p><?= $mhs['tempat_lahir']; ?>, <?= $mhs['tgl_lahir']; ?></p>
+                                    <p><?= $mhs['tempat_lahir']; ?>, <?= date("d-m-Y", strtotime($mhs['tgl_lahir'])); ?>
+                                    </p>
                                 </div>
                                 <div class="col-lg-6">
                                     <h6 class="font-weight-bold m-0">NIM</h6>
