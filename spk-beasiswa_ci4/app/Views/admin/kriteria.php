@@ -27,7 +27,7 @@
                     <?php endif; ?>
 
                     <div class="d-flex justify-content-end"><a
-                            class="btn btn-primary bg-biru-gr rounded-pill w-25 py-2 font-weight-bold"
+                            class="btn btn-primary bg-biru-gr rounded-pill w-25 py-2 font-weight-bold <?= ($status == 'Selesai') ? 'disabled' : ''; ?>"
                             href="<?= base_url().'/kriteria/createKriteria/'.$id_beasiswa; ?>" role="button"><i
                                 class="fas fa-plus-circle"></i> Tambah Data</a>
                     </div>
@@ -54,10 +54,10 @@
                                         <a class="btn btn-success rounded-pill my-1"
                                             href="<?= base_url() ?>/bobot/<?= $id_beasiswa ?>/<?= $krt['id_kriteria']; ?>"
                                             role="button"><i class="far fa-eye"></i> Lihat Bobot</a><br>
-                                        <a class="btn btn-warning rounded-pill text-dark my-1"
+                                        <a class="btn btn-warning rounded-pill text-dark my-1 <?= ($status == 'Selesai') ? 'disabled' : ''; ?>"
                                             href="<?= base_url() ?>/kriteria/editKriteria/<?= $krt['id_beasiswa']; ?>/<?= $krt['id_kriteria']; ?>"
                                             role="button"><i class="far fa-edit"></i> Sunting</a>
-                                        <a class="btn btn-danger rounded-pill my-1"
+                                        <a class="btn btn-danger rounded-pill my-1 <?= ($status == 'Selesai') ? 'disabled' : ''; ?>"
                                             href="<?= base_url('/AdminController/deleteKriteria/'.$krt['id_beasiswa'].'/'.$krt['id_kriteria']) ?>"
                                             role="button"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </td>

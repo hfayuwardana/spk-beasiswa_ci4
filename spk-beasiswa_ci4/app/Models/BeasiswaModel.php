@@ -10,8 +10,6 @@ class BeasiswaModel extends Model
     protected $allowedFields = ['nama_beasiswa', 'nama_penyelenggara', 'tahun', 'kuota', 'status'];
 
     public function getAllBeasiswa(){
-        // return $this->findAll();
-
         return $this->db->query("SELECT * FROM $this->table a WHERE a.status NOT IN ('Deleted')")
         ->getResultArray();
     }
@@ -31,7 +29,7 @@ class BeasiswaModel extends Model
     }
 
     public function getBeasiswaForHasil(){
-        return $this->db->query("SELECT id_beasiswa, nama_beasiswa, nama_penyelenggara, tahun, kuota, status from $this->table")
+        return $this->db->query("SELECT DISTINCT a.id_beasiswa, a.nama_beasiswa, a.nama_penyelenggara, a.tahun, a.kuota, a.status FROM $this->table a JOIN tb_kecocokan b ON a.id_beasiswa=b.id_beasiswa")
         ->getResultArray();
     }
 

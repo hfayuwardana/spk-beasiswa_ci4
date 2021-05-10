@@ -26,10 +26,11 @@
                     </div>
                     <?php endif; ?>
 
-                    <div class="d-flex justify-content-end"><a
-                            class="btn btn-primary bg-biru-gr rounded-pill w-25 py-2 font-weight-bold"
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-primary bg-biru-gr rounded-pill w-25 py-2 font-weight-bold <?= ($status == 'Selesai') ? 'disabled' : ''; ?>"
                             href="<?= base_url().'/bobot/createBobot/'.$id_beasiswa.'/'.$id_kriteria; ?>"
-                            role="button"><i class="fas fa-plus-circle"></i> Tambah Bobot</a>
+                            role="button"><i class="fas fa-plus-circle"></i> Tambah Bobot
+                        </a>
                     </div>
                     <div class="table-responsive">
                         <table class="table mt-4 text-center">
@@ -49,10 +50,10 @@
                                     <td class="w-25"><?= $bbt['keterangan']; ?></td>
                                     <td><?= $bbt['value']; ?></td>
                                     <td>
-                                        <a class="btn btn-warning rounded-pill text-dark my-1"
+                                        <a class="btn btn-warning rounded-pill text-dark my-1 <?= ($status == 'Selesai') ? 'disabled' : ''; ?>"
                                             href="<?= base_url() ?>/bobot/editBobot/<?= $bbt['id_beasiswa']; ?>/<?= $bbt['id_kriteria']; ?>/<?= $bbt['id_bobot']; ?>"
                                             role="button"><i class="far fa-edit"></i> Sunting</a>
-                                        <a class="btn btn-danger rounded-pill my-1"
+                                        <a class="btn btn-danger rounded-pill my-1 <?= ($status == 'Selesai') ? 'disabled' : ''; ?>"
                                             href="<?= base_url('/AdminController/deleteBobot/'.$bbt['id_beasiswa'].'/'.$bbt['id_kriteria'].'/'.$bbt['id_bobot']) ?>"
                                             role="button"><i class="far fa-trash-alt"></i> Hapus</a>
                                     </td>

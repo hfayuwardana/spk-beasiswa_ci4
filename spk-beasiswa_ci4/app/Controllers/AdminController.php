@@ -708,10 +708,12 @@ class AdminController extends BaseController
 			// redirect untuk melakukan login pada form login
 			return redirect()->to(base_url().'/authenticate');
 		}
-
+		
+		$status = $this->beasiswa->cekStatus($id_beasiswa);
 		$data = [
 			'kriteria' => $this->kriteria->getKriteriaByBeasiswa($id_beasiswa),
 			'id_beasiswa' => $id_beasiswa,
+			'status' => $status[0]['status'],
 		];
 		echo view('templates/header');
 		echo view('templates/nav_admin');
@@ -856,16 +858,19 @@ class AdminController extends BaseController
 	public function deleteKriteria($id_beasiswa, $id_kriteria){
 		$krt = $this->kriteria->getKriteriaById($id_kriteria);
 		// jika id_kriteria tidak terdata di database (karena admin mengisi id_mahasiswa yang tidak valid via parameter URL)
-		if($krt == NULL){
+		if($krt == null){
 			$this->session->setFlashData('danger', "Gagal menghapus data kriteria! Kriteria tidak terdata pada sistem.");
 		}
 		// jika id_kriteria terdata di database
 		else {
-			if($this->kriteria->deleteDataKriteria($id_kriteria)){
-				$this->session->setFlashData('success', "Berhasil menghapus data kriteria!");
+			$isBerelasi = $this->bobot->getBobotByKriteria($id_kriteria);
+			if($isBerelasi == null){
+                if ($this->kriteria->deleteDataKriteria($id_kriteria)) {
+                    $this->session->setFlashData('success', "Berhasil menghapus data kriteria!");
+                }
 			}
 			else {
-				$this->session->setFlashData('danger', "Gagal menghapus data kriteria! Hapus terlebih dahulu kolom bobot.");
+				$this->session->setFlashData('danger', "Gagal menghapus data kriteria! Hapus terlebih dahulu bobot untuk kriteria.");
 			}
 		}
 		// redirect ke tampilan tabel kriteria
@@ -880,10 +885,12 @@ class AdminController extends BaseController
 			return redirect()->to(base_url().'/authenticate');
 		}
 
+		$status = $this->beasiswa->cekStatus($id_beasiswa);
 		$data = [
 			'bobot' => $this->bobot->getBobotByKriteria($id_kriteria),
 			'id_beasiswa' => $id_beasiswa,
 			'id_kriteria' => $id_kriteria,
+			'status' => $status[0]['status'],
 		];
 		echo view('templates/header');
 		echo view('templates/nav_admin');

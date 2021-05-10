@@ -54,13 +54,13 @@
                                         <a class="btn btn-success rounded-pill my-1"
                                             href="<?= base_url() ?>/beasiswa/detailBeasiswa/<?= $bsw['id_beasiswa']; ?>"
                                             role="button"><i class="far fa-eye"></i> Detail</a>
-                                        <a class="btn btn-warning rounded-pill text-dark my-1"
+                                        <a class="btn btn-warning rounded-pill text-dark my-1 <?= ($bsw['status'] == 'Selesai' ? 'disabled' : '') ?>"
                                             href="<?= base_url() ?>/beasiswa/editBeasiswa/<?= $bsw['id_beasiswa']; ?>"
                                             role="button"><i class="far fa-edit"></i> Sunting</a><br>
-                                        <a class="btn btn-danger rounded-pill my-1"
+                                        <a class="btn btn-danger rounded-pill my-1 <?= ($bsw['status'] == 'Selesai' ? 'disabled' : '') ?>"
                                             href="<?= base_url('/AdminController/deleteBeasiswa/'.$bsw['id_beasiswa']) ?>"
                                             role="button"><i class="far fa-trash-alt"></i> Hapus</a>
-                                        <a class="btn btn-dark rounded-pill my-1"
+                                        <a class="btn btn-dark rounded-pill my-1 <?= ($bsw['status'] == 'Selesai' ? 'disabled' : '') ?>"
                                             href="<?= base_url('/AdminController/finishBeasiswa/'.$bsw['id_beasiswa']) ?>"
                                             role="button"><i class="fas fa-check"></i> Selesai</a>
                                     </td>

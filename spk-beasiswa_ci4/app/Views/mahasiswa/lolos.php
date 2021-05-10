@@ -28,9 +28,6 @@
     <div class="lolos-box">
         <h3>Daftar Mahasiswa yang Menerima Beasiswa</h3>
         <hr>
-        <h5>Beasiswa :</h5>
-        <h5>Tenggat Waktu :</h5>
-
         <table class="table">
             <thead>
                 <tr>

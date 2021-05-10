@@ -37,7 +37,7 @@
                                 <tr>
                                     <th scope="col">No.</th>
                                     <th scope="col w-25">Beasiswa</th>
-                                    <th scope="col">Penyelenggara</th>
+                                    <th scope="col w-25">Penyelenggara</th>
                                     <th scope="col">Tahun</th>
                                     <th scope="col">Kuota</th>
                                     <th scope="col">Aksi</th>
@@ -49,7 +49,7 @@
                                 <tr>
                                     <th scope="row"><?= $no++; ?></th>
                                     <td class="w-25"><?= $bsw['nama_beasiswa']; ?></td>
-                                    <td><?= $bsw['nama_penyelenggara']; ?></td>
+                                    <td class="w-25"><?= $bsw['nama_penyelenggara']; ?></td>
                                     <td><?= $bsw['tahun']; ?></td>
                                     <td><?= $bsw['kuota']; ?></td>
                                     <td>
