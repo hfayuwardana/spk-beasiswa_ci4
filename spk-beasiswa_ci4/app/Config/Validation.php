@@ -349,7 +349,7 @@ class Validation
 		],
 
 		'tgl_lahir' => [
-			'validateValue' => 'Anda wajib mengisi tanggal lahir'
+			'required' => 'Anda wajib mengisi tanggal lahir'
 		],
 	];
 }

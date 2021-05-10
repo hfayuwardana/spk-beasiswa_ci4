@@ -10,7 +10,10 @@ class BeasiswaModel extends Model
     protected $allowedFields = ['nama_beasiswa', 'nama_penyelenggara', 'tahun', 'kuota', 'status'];
 
     public function getAllBeasiswa(){
-        return $this->findAll();
+        // return $this->findAll();
+
+        return $this->db->query("SELECT * FROM $this->table a WHERE a.status NOT IN ('Deleted')")
+        ->getResultArray();
     }
 
     public function getBeasiswaById($id_beasiswa){
@@ -28,18 +31,17 @@ class BeasiswaModel extends Model
     }
 
     public function getBeasiswaForHasil(){
-        // return $this->db->query("SELECT DISTINCT a.id_beasiswa, a.nama_beasiswa, a.nama_penyelenggara, a.tahun, a.kuota, a.status from $this->table a JOIN tb_hasil b ON a.id_beasiswa = b.id_beasiswa")
-        // ->getResultArray();
-
         return $this->db->query("SELECT id_beasiswa, nama_beasiswa, nama_penyelenggara, tahun, kuota, status from $this->table")
         ->getResultArray();
     }
 
     public function getBeasiswaForPengumuman(){
-        return $this->db->table($this->table)
-        ->select('tb_beasiswa.nama_beasiswa, tb_beasiswa.nama_penyelenggara, tb_beasiswa.tahun')
-        ->join('tb_hasil', 'tb_beasiswa.id_beasiswa = tb_hasil.id_beasiswa')
-        ->where(['tb_beasiswa.status' => 'selesai'])->get()
+        return $this->db->query("SELECT id_beasiswa, nama_beasiswa, nama_penyelenggara, tahun, kuota from $this->table WHERE status = 'Selesai'")
+        ->getResultArray();
+    }
+
+    public function getBeasiswaForSearchPengumuman($nama_beasiswa){
+        return $this->db->query("SELECT id_beasiswa, nama_beasiswa, nama_penyelenggara, tahun, kuota from $this->table WHERE status = 'Selesai' AND nama_beasiswa LIKE '%$nama_beasiswa%'")
         ->getResultArray();
     }
 

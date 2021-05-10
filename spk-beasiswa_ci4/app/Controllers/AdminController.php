@@ -61,7 +61,7 @@ class AdminController extends BaseController
 		// jika user sudah login
 		else {
 			// redirect ke halaman home admin
-			return redirect()->to(base_url());
+			return redirect()->to(base_url().'/index');
 		}
 	} 
 
@@ -79,7 +79,7 @@ class AdminController extends BaseController
 		if($this->form_validation->run($data, 'login') == FALSE){
 			// jika user sudah login
 			if(isset($_SESSION['isLoggedIn'])) {
-				// redirect untuk melakukan login pada form login
+				// redirect ke home
 				return redirect()->to(base_url().'/home');
 			}
 			$data = [
@@ -100,7 +100,7 @@ class AdminController extends BaseController
 			
 			// redirect ke controller
 			$this->session->setFlashData('success', "Berhasil melakukan login!");
-			return redirect()->to(base_url());
+			return redirect()->to(base_url().'/index');
 		}
 	}
 	
@@ -653,11 +653,19 @@ class AdminController extends BaseController
 		}
 		// jika id_mahasiswa terdata di database
 		else {
-			if($this->beasiswa->deleteDataBeasiswa($id_beasiswa)){
-				$this->session->setFlashData('success', "Berhasil menghapus data beasiswa!");
+			$isBerelasi = $this->kriteria->getKriteriaByBeasiswa($id_beasiswa);
+			if($isBerelasi == null){
+                if ($this->beasiswa->deleteDataBeasiswa($id_beasiswa)) {
+                    $this->session->setFlashData('success', "Berhasil menghapus data beasiswa!");
+                }
 			}
 			else {
-				$this->session->setFlashData('danger', "Gagal menghapus data beasiswa! Hapus terlebih dahulu kolom kriteria.");
+				$data = [
+					'status' => 'Deleted',
+				];
+				if($this->beasiswa->updateDataBeasiswa($id_beasiswa, $data)){
+					$this->session->setFlashData('success', "Status beasiswa berhasil diubah sebagai terhapus.");
+				}
 			}
 		}
 		// redirect ke tampilan tabel beasiswa
@@ -665,6 +673,11 @@ class AdminController extends BaseController
 	}
 	
 	public function finishBeasiswa($id_beasiswa){
+		$data = [
+			'status' => 'Selesai',
+		];
+
+		$finish = $this->beasiswa->finishDataBeasiswa($id_beasiswa, $data);
 	}
 
 	public function viewBeasiswa($id_beasiswa){

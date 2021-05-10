@@ -69,10 +69,6 @@ class HasilModel extends Model
     }
 
     public function insertHasil($data){
-        // $query = "INSERT INTO $this->table (id_beasiswa, id_mahasiswa, nilai) VALUES ($id_beasiswa, $id_mahasiswa, $ranking)";
-        
-        // return $this->db->query($query)->getResultArray();
-
         return $this->db->table($this->table)->insert($data);
     }
 
@@ -84,7 +80,7 @@ class HasilModel extends Model
 
     public function getHasilForPengumuman($id_beasiswa){
         return $this->db->query("SELECT DISTINCT b.nim, b.nama_mhs FROM $this->table a JOIN tb_mahasiswa b 
-        ON a.id_mahasiswa = b.id_mahasiswa WHERE id_beasiswa = $id_beasiswa AND tb_beasiswa.status = 'Sudah'")
+        ON a.id_mahasiswa = b.id_mahasiswa WHERE id_beasiswa = $id_beasiswa LIMIT b.kuota")
         ->getResultArray();
     }
 }

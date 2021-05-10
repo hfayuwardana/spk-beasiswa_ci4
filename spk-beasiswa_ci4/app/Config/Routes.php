@@ -36,15 +36,15 @@ $routes->setAutoRoute(true);
 // ROUTES MAHASISWA
 $routes->get('/', 'MahasiswaController::index');
 $routes->get('/mhs/verifikasi', 'MahasiswaController::createDataPribadi');
-// $routes->post('/mhs/prosesverifikasi', 'MahasiswaController::cekDataPribadi');
 $routes->post('/mhs/detailMahasiswa', 'MahasiswaController::viewDataPribadi');
 $routes->get('/mhs/beasiswa', 'MahasiswaController::viewPengumumanBeasiswa');
-$routes->get('/mhs/lolos', 'MahasiswaController::viewMahasiswaLolos');
+$routes->get('/mhs/cariBeasiswa', 'MahasiswaController::cariPengumumanBeasiswa');
+$routes->get('/mhs/lolos/(:segment)', 'MahasiswaController::viewMahasiswaLolos/$1');
 
 
 
 // $routes->get('/', 'Home::index');
-$routes->get('/', 'AdminController::index');
+$routes->get('/index', 'AdminController::index');
 $routes->get('/authenticate', 'AdminController::authenticate');
 // $routes->get('/home', 'AdminController::index');
 $routes->get('/home', 'AdminController::home');
@@ -94,7 +94,6 @@ $routes->get('/kecocokan/beasiswa', 'AdminController::viewBeasiswaPadaKecocokan'
 $routes->get('/kecocokan/mahasiswa/(:segment)', 'AdminController::viewMahasiswaPadaKecocokan/$1');
 $routes->get('/kecocokan/(:segment)/(:segment)', 'AdminController::viewKecocokan/$1/$2');
 $routes->get('/kecocokan/createKecocokan', 'AdminController::createKecocokan');
-// $routes->post('/kecocokan/tampilKecocokan/', 'AdminController::tampilKecocokan');
 // segment: nama method
 $routes->post('/kecocokan/insertKecocokan/(:segment)', 'AdminController::insertKecocokan/$1');
 

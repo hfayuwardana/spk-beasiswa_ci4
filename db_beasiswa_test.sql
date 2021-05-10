@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2021 at 02:22 PM
+-- Generation Time: May 10, 2021 at 07:47 AM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -64,7 +64,7 @@ CREATE TABLE `tb_beasiswa` (
   `nama_penyelenggara` varchar(250) NOT NULL,
   `tahun` year(4) NOT NULL,
   `kuota` int(11) NOT NULL,
-  `status` enum('Belum','Selesai') NOT NULL
+  `status` enum('Belum','Selesai','Deleted') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -74,7 +74,10 @@ CREATE TABLE `tb_beasiswa` (
 INSERT INTO `tb_beasiswa` (`id_beasiswa`, `nama_beasiswa`, `nama_penyelenggara`, `tahun`, `kuota`, `status`) VALUES
 (1, 'BNI Ceria', 'Bank BNI', 2021, 15, 'Belum'),
 (2, 'Djarum', 'PT Djarum', 2020, 12, 'Belum'),
-(4, 'Indonesia Cerdas', 'Persatuan Pemuda Indonesia', 2020, 6, 'Belum');
+(4, 'Indonesia Cerdas', 'Persatuan Pemuda Indonesia', 2020, 6, 'Belum'),
+(6, 'Test Beasiswa', 'Test Penyelenggara', 2021, 5, 'Selesai'),
+(7, 'Beasiswa Test 2 Luar Biasa', 'Test Penyelenggara 2', 2022, 8, 'Selesai'),
+(9, 'Gembira', 'PPI Indonesia', 2021, 2, 'Deleted');
 
 -- --------------------------------------------------------
 
@@ -226,7 +229,8 @@ INSERT INTO `tb_kriteria` (`id_kriteria`, `nama_kriteria`, `sifat`, `bobot`, `id
 (10, 'Semester', 'Min', 0.14, 4),
 (11, 'Penghasilan Ortu', 'Min', 0.3, 4),
 (14, 'Jumlah Saudara', 'Max', 0.2, 4),
-(15, 'Jumlah Saudara', 'Max', 0.15, 2);
+(15, 'Jumlah Saudara', 'Max', 0.15, 2),
+(16, 'IPK', 'Max', 0.3, 9);
 
 -- --------------------------------------------------------
 
@@ -326,7 +330,7 @@ ALTER TABLE `tb_akun`
 -- AUTO_INCREMENT for table `tb_beasiswa`
 --
 ALTER TABLE `tb_beasiswa`
-  MODIFY `id_beasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_beasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_bobot`
@@ -350,7 +354,7 @@ ALTER TABLE `tb_kecocokan`
 -- AUTO_INCREMENT for table `tb_kriteria`
 --
 ALTER TABLE `tb_kriteria`
-  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tb_mahasiswa`

@@ -18,7 +18,7 @@
 <body class="bg2">
     <div class="navv">
         <div class="menu">
-            <a href="home.htm">Beranda</a>
+            <a href="<?= base_url().'/'; ?>">Beranda</a>
         </div>
     </div>
     <div class="verifikasi">
@@ -35,8 +35,13 @@
                 <label for="tgl_lahir">Masukkan Tanggal Lahir</label>
                 <input type="date" name="tgl_lahir" id="tgl_lahir">
             </div>
-
             <button>Kirim</button>
+            <?php if($validation != NULL): ?>
+            <div style="color: red;"><strong><?= $pesan; ?></strong></div>
+            <?php endif; ?>
+            <?php if(session()->getFlashdata('danger')): ?>
+            <div style="color: red;"><strong><?= $pesan; ?></strong></div>
+            <?php endif; ?>
         </form>
     </div>
 </body>

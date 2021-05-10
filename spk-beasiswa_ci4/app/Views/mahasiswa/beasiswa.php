@@ -21,15 +21,15 @@
 <body class="bg">
     <div class="navv">
         <div class="menu">
-            <a href="home.htm">Beranda</a>
+            <a href="<?= base_url().'/'; ?>">Beranda</a>
         </div>
     </div>
 
     <div class="databeasiswa-box">
         <h3>Daftar Beasiswa</h3>
         <hr>
-        <form action="">
-            <input type="text" name="" id="" placeholder="Cari beasiswa">
+        <form action="<?= base_url().'/mhs/cariBeasiswa'; ?>" method="get">
+            <input type="text" name="searchBeasiswa" id="searchBeasiswa" placeholder="Cari beasiswa">
             <i class="fas fa-search"></i>
         </form>
 
@@ -38,22 +38,25 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama Beasiswa</th>
-                    <th scope="col">Tenggat Waktu</th>
+                    <th scope="col">Nama Penyelenggara</th>
                     <th scope="col">Nama Penyelenggara</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
+                <?php $no = 1; ?>
+                <?php foreach($beasiswa as $bsw): ?>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Beasiswa Djarum</td>
-                    <td>2 November 2021</td>
-                    <td>PT. Djarum</td>
+                    <th scope="row"><?= $no++; ?></th>
+                    <td><?= $bsw['nama_beasiswa']; ?></td>
+                    <td><?= $bsw['nama_penyelenggara']; ?></td>
+                    <td><?= $bsw['tahun']; ?></td>
                     <td class="act">
                         <i class="fas fa-eye"></i>
-                        <a href="detail_mhs.htm">Detail</a>
+                        <a href="<?= base_url().'/mhs/lolos/'.$bsw['id_beasiswa']; ?>">Detail</a>
                     </td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

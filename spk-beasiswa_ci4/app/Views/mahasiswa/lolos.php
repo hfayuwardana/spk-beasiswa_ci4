@@ -21,7 +21,7 @@
 <body class="bg2">
     <div class="navv">
         <div class="menu">
-            <a href="home.htm">Beranda</a>
+            <a href="<?= base_url().'/'; ?>">Beranda</a>
         </div>
     </div>
 
@@ -40,11 +40,14 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $no = 1; ?>
+                <?php foreach($hasil as $hsl): ?>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>1900575</td>
-                    <td>Christina Prilla Rosaria Ardyanti</td>
+                    <th scope="row"><?= $no++; ?></th>
+                    <td><?= $hsl['nim']; ?></td>
+                    <td><?= $hsl['nama_mhs']; ?></td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

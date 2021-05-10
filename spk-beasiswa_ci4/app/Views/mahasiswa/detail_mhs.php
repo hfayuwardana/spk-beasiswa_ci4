@@ -17,7 +17,7 @@
 <body class="bg">
     <div class="navv">
         <div class="menu">
-            <a href="#">Beranda</a>
+            <a href="<?= base_url().'/'; ?>">Beranda</a>
         </div>
     </div>
 
@@ -30,22 +30,31 @@
             </div>
             <div class="ct personal">
                 <h4 style="margin-top: 10px;">Nama Lengkap</h4>
-                <p><?= $data; ?></p>
+                <p><?= $mhs['nama_mhs']; ?></p>
                 <h4>Tempat, Tanggal Lahir</h4>
+                <p><?= $mhs['tempat_lahir']; ?>, <?= $mhs['tgl_lahir']; ?></p>
                 <h4>Alamat</h4>
+                <p><?= $mhs['alamat']; ?></p>
                 <h4>Nama Ibu</h4>
+                <p><?= $mhs['nama_ibu']; ?></p>
                 <h4>Golongan Darah</h4>
+                <p><?= $mhs['gol_darah']; ?></p>
                 <h4>Penghasilan Orangtua</h4>
+                <p><?= $mhs['penghasilan_ortu']; ?></p>
                 <h4>Jumlah Saudara</h4>
+                <p><?= $mhs['jml_saudara']; ?></p>
             </div>
             <div class="ct info-studi">
                 <h3>Informasi Studi</h3>
                 <h4>NIM</h4>
+                <p><?= $mhs['nim']; ?></p>
                 <h4>Semester</h4>
+                <p><?= $mhs['semester']; ?></p>
                 <h4>IPK</h4>
+                <p><?= $mhs['ipk']; ?></p>
             </div>
         </div>
-        <a href="home.htm">Kembali ke Beranda</a>
+        <a href="<?= base_url().'/'; ?>">Kembali ke Beranda</a>
         <br>
         <br>
         <br>
