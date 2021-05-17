@@ -45,6 +45,7 @@ $routes->get('/index', 'AdminController::index');
 $routes->get('/authenticate', 'AdminController::authenticate');
 $routes->get('/home', 'AdminController::home');
 $routes->post('/login', 'AdminController::login');
+// kalau logout langsung memanggil controller, tidak melalui routes
 
 $routes->get('/admin', 'AdminController::viewAllAkun');
 $routes->get('/admin/createAkun', 'AdminController::createAkun');

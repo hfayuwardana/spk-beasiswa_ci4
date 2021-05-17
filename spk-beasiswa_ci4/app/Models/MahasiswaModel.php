@@ -18,7 +18,6 @@ class MahasiswaModel extends Model
     }
 
     public function getMahasiswaByVerif($data){
-        // return $this->getWhere(['nim' => $nim, 'tgl_lahir' => $tgl_lahir, 'nama_ibu' => $nama_ibu])->getRowArray();
         $nim = $data['nim'];
         $nama_ibu = $data['nama_ibu'];
         $tgl_lahir = $data['tgl_lahir'];
@@ -27,12 +26,12 @@ class MahasiswaModel extends Model
         ->getResultArray();
     }
 
-    public function getMahasiswaForInsertKecocokan($id_mahasiswa){
-        return $this->db->table($this->table)
-        ->select('ipk, semester, penghasilan_ortu, jml_saudara')
-        ->where(['id_mahasiswa' => $id_mahasiswa])->get()
-        ->getResultArray();
-    }
+    // public function getMahasiswaForInsertKecocokan($id_mahasiswa){
+    //     return $this->db->table($this->table)
+    //     ->select('ipk, semester, penghasilan_ortu, jml_saudara')
+    //     ->where(['id_mahasiswa' => $id_mahasiswa])->get()
+    //     ->getResultArray();
+    // }
 
     public function getMahasiswaForKecocokan($id_beasiswa){
         return $this->db->query("SELECT DISTINCT a.id_mahasiswa, a.nim, a.nama_mhs FROM $this->table a JOIN tb_kecocokan b ON 

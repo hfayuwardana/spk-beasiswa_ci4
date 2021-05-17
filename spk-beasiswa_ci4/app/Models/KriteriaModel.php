@@ -18,12 +18,12 @@ class KriteriaModel extends Model
         return $this->getWhere(['id_kriteria' => $id_kriteria])->getRowArray();
     }
 
-    public function getKriteriaForInsertKecocokan($id_beasiswa){
-        return $this->db->table($this->table)
-        ->select('id_kriteria', 'nama_kriteria', 'bobot', 'sifat')
-        ->where(['id_beasiswa' => $id_beasiswa])->get()
-        ->getResultArray();
-    }
+    // public function getKriteriaForInsertKecocokan($id_beasiswa){
+    //     return $this->db->table($this->table)
+    //     ->select('id_kriteria', 'nama_kriteria', 'bobot', 'sifat')
+    //     ->where(['id_beasiswa' => $id_beasiswa])->get()
+    //     ->getResultArray();
+    // }
 
     public function insertDataKriteria($data){
         return $this->db->table($this->table)->insert($data);

@@ -40,7 +40,7 @@
                 <h4>Golongan Darah</h4>
                 <p><?= $mhs['gol_darah']; ?></p>
                 <h4>Penghasilan Orangtua</h4>
-                <p><?= $mhs['penghasilan_ortu']; ?></p>
+                <p>Rp. <?= $mhs['penghasilan_ortu']; ?> (perbulan)</p>
                 <h4>Jumlah Saudara</h4>
                 <p><?= $mhs['jml_saudara']; ?></p>
             </div>

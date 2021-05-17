@@ -58,8 +58,6 @@ html, body {
 
 .aside a:hover {
     background-color: #6c757d;
-    /* width: 95%; */
-    /* height: 100%; */
 }
 
 .text-biru-1 {
@@ -82,43 +80,9 @@ html, body {
 }
 
 @media only screen and (max-width: 575.98px) {
-    /* #main-login .container-fluid .card {
-        width: 90%;
-        margin: 15% auto;
-    }
 
-    #main-login .container-fluid img {
-        width: 30% !important;
-    }
-
-    #main-login .container-fluid .card h2, #main-login .container-fluid .card h4 {
-        font-size: 20px;
-    }
-
-    #header .logo-text {
-        font-size: 17px;
-    }
-
-    #main {
-        padding-top: 8em;
-    } */
 }
 
 @media only screen and (min-width: 576px) and (max-width: 991.98px)  {
-    /* #main-login .container-fluid .card {
-        width: 90%;
-        margin: 15% auto;
-    }
 
-    #main-login .container-fluid img {
-        width: 30% !important;
-    }
-
-    #main-login .container-fluid .card h2, #main-login .container-fluid .card h4 {
-        font-size: 20px;
-    }
-
-    #main {
-        padding-top: 8em;
-    } */
 }

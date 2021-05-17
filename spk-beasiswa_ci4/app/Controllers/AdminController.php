@@ -1129,7 +1129,7 @@ class AdminController extends BaseController
 					// menampilkan kriteria apa saja yg harus diisi admin
 					'kriteria' => $this->kriteria->getKriteriaByBeasiswa($id_beasiswa),
 					// get bobot dari beasiswa untuk dilakukan pencocokan nilai bobot yg diperoleh oleh mhs
-					'bobot' => $this->bobot->getBobotByBeasiswa($id_beasiswa),
+					'bobot' => $this->bobot->getBobotForInsertKecocokan($id_beasiswa),
 				];
 			}
 	
@@ -1169,7 +1169,7 @@ class AdminController extends BaseController
                     'id_mahasiswa' => $id_mahasiswa,
                     'mhs' => $this->mahasiswa->getMahasiswaById($id_mahasiswa),
                     'kriteria' => $this->kriteria->getKriteriaByBeasiswa($id_beasiswa),
-                    'bobot' => $this->bobot->getBobotByBeasiswa($id_beasiswa),
+                    'bobot' => $this->bobot->getBobotForInsertKecocokan($id_beasiswa),
                 ];
                 
                 echo view('templates/header');
@@ -1240,7 +1240,7 @@ class AdminController extends BaseController
 	}
 
 	public function viewHasilByBeasiswa($id_beasiswa){
-		$hasil = $this->hasil->doHitung($id_beasiswa);
+		$hasil = $this->hasil->getHasilByBeasiswa($id_beasiswa);
 		foreach($hasil as $hsl){
 			$mhs = $this->hasil->cekMahasiswa($id_beasiswa, $hsl['id_mahasiswa']);
 			

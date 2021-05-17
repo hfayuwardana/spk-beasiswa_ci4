@@ -9,7 +9,17 @@ class HasilModel extends Model
     protected $primaryKey = 'id_hasil';
     protected $allowedFields = ['nilai', 'id_beasiswa', 'id_mahasiswa'];
 
-    public function doHitung($id_beasiswa){
+    public function cekMahasiswa($id_beasiswa, $id_mahasiswa){
+        $query = "SELECT id_mahasiswa FROM tb_hasil WHERE id_mahasiswa = $id_mahasiswa AND id_beasiswa = $id_beasiswa";
+        
+        return $this->db->query($query)->getResultArray();
+    }
+
+    public function insertHasil($data){
+        return $this->db->table($this->table)->insert($data);
+    }
+
+    public function getHasilByBeasiswa($id_beasiswa){
         $sqlKriteria = "";
         $namaKriteria = [];
         $queryKriteria = "SELECT id_kriteria, nama_kriteria FROM tb_kriteria WHERE id_beasiswa = $id_beasiswa";
@@ -58,24 +68,7 @@ class HasilModel extends Model
         GROUP BY tb_kecocokan.id_mahasiswa
         ORDER BY ranking DESC";
 
-        // dd($sql);
         return $this->db->query($sql)->getResultArray();
-    }
-
-    public function cekMahasiswa($id_beasiswa, $id_mahasiswa){
-        $query = "SELECT id_mahasiswa FROM tb_hasil WHERE id_mahasiswa = $id_mahasiswa AND id_beasiswa = $id_beasiswa";
-        
-        return $this->db->query($query)->getResultArray();
-    }
-
-    public function insertHasil($data){
-        return $this->db->table($this->table)->insert($data);
-    }
-
-    public function getHasilByBeasiswa($id_beasiswa){
-        return $this->db->query("SELECT DISTINCT b.nim, b.nama_mhs, a.nilai FROM $this->table a JOIN tb_mahasiswa b 
-        ON a.id_mahasiswa = b.id_mahasiswa WHERE id_beasiswa = $id_beasiswa")
-        ->getResultArray();
     }
 
     public function getHasilForPengumuman($id_beasiswa, $kuota){

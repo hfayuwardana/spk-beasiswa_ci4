@@ -15,6 +15,7 @@ class KecocokanModel extends Model
         ->getResultArray();
     }
 
+    // digunakan untuk validasi cek unique mahasiswa pada proses pencocokan
     public function getMahasiswaInKecocokan($id_beasiswa, $id_mahasiswa){
         return $this->db->query("SELECT id_mahasiswa FROM $this->table WHERE id_beasiswa=$id_beasiswa AND id_mahasiswa=$id_mahasiswa")
         ->getResultArray();

@@ -14,19 +14,17 @@ class BobotModel extends Model
         ->getResultArray();
     }
 
-    public function getBobotByBeasiswa($id_beasiswa){
-        return $this->db->query("SELECT * FROM $this->table WHERE id_beasiswa=$id_beasiswa")
-        ->getResultArray();
-    }
+    // public function getBobotByBeasiswa($id_beasiswa){
+    //     return $this->db->query("SELECT * FROM $this->table WHERE id_beasiswa=$id_beasiswa")
+    //     ->getResultArray();
+    // }
 
     public function getBobotById($id_bobot){
         return $this->getWhere(['id_bobot' => $id_bobot])->getRowArray();
     }
 
-    public function getBobotForInsertKecocokan($id_beasiswa, $id_kriteria){
-        return $this->db->table($this->table)
-        ->select('keterangan', 'value')
-        ->where(['id_beasiswa' => $id_beasiswa, 'id_kriteria' => $id_kriteria])->get()
+    public function getBobotForInsertKecocokan($id_beasiswa){
+        return $this->db->query("SELECT * FROM $this->table WHERE id_beasiswa=$id_beasiswa")
         ->getResultArray();
     }
 
