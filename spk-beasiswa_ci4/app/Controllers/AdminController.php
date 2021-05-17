@@ -168,7 +168,7 @@ class AdminController extends BaseController
 	
 		$data = [
 			'username' => $username,
-			'password' => md5($password),
+			'password' => $password,
 		];
 	
 		// jika isian form TIDAK sesuai dengan persyaratan
@@ -232,7 +232,7 @@ class AdminController extends BaseController
 			$password = $this->request->getPost('password');
 
 			$data = [
-				'password' => md5($password),
+				'password' => $password,
 			];
 
 			// jika isian form TIDAK sesuai dengan persyaratan
