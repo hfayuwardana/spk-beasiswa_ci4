@@ -43,7 +43,7 @@ class BeasiswaModel extends Model
         ->getResultArray();
     }
 
-    public function cekStatus($id_beasiswa){
+    public function getStatusByBeasiswa($id_beasiswa){
         return $this->db->query("SELECT status from $this->table WHERE id_beasiswa=$id_beasiswa")
         ->getResultArray();
     }

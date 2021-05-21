@@ -1,0 +1,9 @@
+URL home mahasiswa: http://localhost:8080
+URL cek data pribadi: http://localhost:8080/mhs/verifikasi
+nim: 1900003
+nama ibu: "ada lah"
+tgl lahir: 30 april 2021
+
+URL login admin: http://localhost:8080/authenticate
+username: admin
+password: pass4admin

@@ -9,9 +9,11 @@ class AkunRules{
 
 		// Jika akun yang dicari tidak ditemukan di database
 		if(!$akun){
+			// langsung return false
 			return false;
 		}
 		// return apakah hashed password input user sesuai dengan password yang terdata di db
+		// (false: jika tidak sesuai; true: jika sesuai)
         return md5($data['password']) === $akun['password'];
 	}
 }

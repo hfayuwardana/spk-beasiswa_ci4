@@ -24,8 +24,8 @@
 
     <div class="header">
         <div class="welcome">
-            <h1>SISTEM PENDUKUNG KEPUTUSAN BEASISWA</h1>
-            <h2>di Departemen Ilmu Komputer <br>
+            <h1>SISTEM PENDUKUNG KEPUTUSAN PENERIMA BEASISWA</h1>
+            <h2>di Departemen Pendidikan Ilmu Komputer <br>
                 Universitas Pendidikan Indonesia</h2>
         </div>
         <div class="tombol">
@@ -47,18 +47,29 @@
         <h1>Informasi Web</h1>
 
         <div class="info">
-            <img src="<?= base_url(); ?>/../img/book.png" alt="">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Rerum deleniti harum aperiam, aliquid maxime distinctio temporibus
-                soluta, quasi, quibusdam quia ea est assumenda non excepturi? Recusandae
-                odit delectus optio omnis!</p>
+            <img src="<?= base_url(); ?>/../img/book.png" alt="icon-book">
+            <p>Website Sistem Pendukung Keputusan (SPK) Penerima Beasiswa merupakan sistem informasi untuk mendukung
+                pengambilan keputusan dalam menyeleksi mahasiswa yang berhak mendapatkan beasiswa. Sistem ini dibangun
+                untuk menyelesaikan permasalahan penentuan kandidat penerima beasiswa di
+                tingkat departemen secara transparan dan akurat.
+                <br><br>
+                SPK ini dikembangkan oleh <strong>Kelompok 4 RPL Ilmu Komputer C1 2021</strong> yang beranggotakan
+                Aliffia Fajriyanti
+                (1903618),
+                Christina Prilla Rosaria Ardyanti (1900575), dan Hikmawati Fajriah Ayu Wardana (1903510)
+                untuk memenuhi Tugas Besar dalam Mata Kuliah <strong>Rekayasa
+                    Perangkat Lunak</strong> yang diampu oleh <strong>Eddy Prasetyo Nugroho, M.T.</strong> dan
+                <strong>Ani
+                    Anisyah,
+                    M.T.</strong>
+            </p>
         </div>
     </div>
 
     <div class="footer-box">
         <div class="footer">
             <div class="spk">
-                <h3>Sistem Pendukung <br> Keputusan Beasiswa</h3>
+                <h3>Sistem Pendukung Keputusan <br> Penerima Beasiswa</h3>
                 <h5>Universitas Pendidikan Indonesia</h5>
             </div>
             <div class="kontak">
@@ -69,7 +80,7 @@
                 <p>adminspk@gmail.com</p>
             </div>
         </div>
-        <h6>Ayu Allifia Prilla | &copy; 2021</h6>
+        <h6>Ayu Aliffia Prilla - Kelompok 4 RPL | &copy; 2021</h6>
     </div>
 </body>
 

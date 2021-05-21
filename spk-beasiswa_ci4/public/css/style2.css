@@ -144,7 +144,7 @@
 }
 
 .verifikasi{
-    width: 80%;
+    width: 65%;
     margin: auto;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
     margin-top: 50px;
@@ -222,7 +222,7 @@
 }
 
 .detail-box{
-    width: 80%;
+    width: 70%;
     margin: auto;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
     background-color: #FAFBFD;
@@ -250,7 +250,7 @@
 }
 
 .databeasiswa-box{
-    width: 80%;
+    width: 70%;
     margin: auto;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
     background-color: #FAFBFD;
@@ -339,7 +339,7 @@
 }
 
 .lolos-box{
-    width: 80%;
+    width: 70%;
     margin: auto;
     box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.25);
     background-color: #FAFBFD;

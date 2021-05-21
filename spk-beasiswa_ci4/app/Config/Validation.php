@@ -45,6 +45,7 @@ class Validation
 	// Rules
 	//--------------------------------------------------------------------
 
+	/* ------------------------- VALIDASI ADMIN -------------------------- */
 	public $login = [
 		'username' => 'required',
 		'password' => 'required|validateAkun[username, password]',
@@ -63,7 +64,6 @@ class Validation
 	];
 
 	public $insertAkun = [
-		// is_unique[nama_tabel.nama_kolom]
 		'username' => 'required|max_length[15]|is_unique[tb_akun.username]|alpha_numeric',
 		'password' => 'required|max_length[50]',
 	];
@@ -130,7 +130,7 @@ class Validation
 
 		'nim' => [
 			'required' => 'Anda wajib mengisi NIM',
-			'max_length' => 'Jumlah karakter pada nama NIM adalah tepat 7 karakter',
+			'exact_length' => 'Jumlah karakter pada nama NIM adalah tepat 7 karakter',
 			'is_unique' => 'NIM telah terdaftar pada sistem'
 		],
 
@@ -332,7 +332,7 @@ class Validation
 		],
 	];
 
-	// VALIDASI MAHASISWA
+	/* ----------------------- VALIDASI MAHASISWA ------------------------ */
 	public $verifikasi = [
 		'nim' => 'required',
 		'nama_ibu' => 'required',

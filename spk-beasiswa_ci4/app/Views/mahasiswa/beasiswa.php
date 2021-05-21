@@ -39,7 +39,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama Beasiswa</th>
                     <th scope="col">Nama Penyelenggara</th>
-                    <th scope="col">Nama Penyelenggara</th>
+                    <th scope="col">Tahun</th>
                     <th scope="col">Aksi</th>
                 </tr>
             </thead>

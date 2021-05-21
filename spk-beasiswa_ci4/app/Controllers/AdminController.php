@@ -27,6 +27,7 @@ class AdminController extends BaseController
 		$this->hasil = new HasilModel();
 	}
 	
+	/* function menampilkan home admin */
 	public function index(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -46,6 +47,7 @@ class AdminController extends BaseController
 		}
 	}
 	
+	/* function menampilkan form login admin */
 	public function authenticate(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -65,7 +67,7 @@ class AdminController extends BaseController
 		}
 	} 
 
-	// function logika login
+	/* function logika untuk memproses login */
 	public function login()
 	{
 		$username = $this->request->getPost('username');
@@ -98,12 +100,13 @@ class AdminController extends BaseController
 			];
 			session()->set($data);
 			
-			// redirect ke controller
+			// redirect ke index
 			$this->session->setFlashData('success', "Berhasil melakukan login!");
 			return redirect()->to(base_url().'/index');
 		}
 	}
 	
+	/* function menampilkan home admin */
 	public function home(){
 		// jika user sudah login
 		if(isset($_SESSION['isLoggedIn'])) {
@@ -117,15 +120,15 @@ class AdminController extends BaseController
 		return redirect()->to(base_url().'/authenticate');
 	}
 
-	// function logika logout
+	/* function logika untuk memproses logout */
 	public function logout(){
 		$this->session->destroy();
 		// redirect ke halaman login
 		return redirect()->to(base_url().'/authenticate');
 	}
 
-		// ----------------------------------------- Bagian Akun Admin ------------------------------------------
-	// function tampil tabel akun admin
+	// ----------------------------------------- Bagian Akun Admin ------------------------------------------
+	/* function menampilkan tabel akun admin */
 	public function viewAllAkun(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -142,7 +145,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
-	// function tampil form tambah akun admin
+	/* function menampilkan form tambah akun admin */
 	public function createAkun(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -161,14 +164,14 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
-	// function logika insert akun admin
+	/* function logika untuk memproses tambah akun admin */
 	public function insertAkun(){
 		$username = $this->request->getPost('username');
 		$password = $this->request->getPost('password');
 	
 		$data = [
 			'username' => $username,
-			'password' => $password,
+			'password' => md5($password),
 		];
 	
 		// jika isian form TIDAK sesuai dengan persyaratan
@@ -199,7 +202,7 @@ class AdminController extends BaseController
 		}
 	}
 
-	// function tampil form ubah akun admin
+	/* function menampilkan form ubah akun admin */
 	public function editAkun($id_akun){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -219,7 +222,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
-	// function logika update akun admin
+	/* function logika untuk memproses ubah akun admin */
 	public function updateAkun($id_akun){
 		$user = $this->akun->getAkunById($id_akun);
 		// jika id_akun tidak terdata di database (karena admin mengisi id_akun yang tidak valid via parameter URL)
@@ -232,7 +235,7 @@ class AdminController extends BaseController
 			$password = $this->request->getPost('password');
 
 			$data = [
-				'password' => $password,
+				'password' => md5($password),
 			];
 
 			// jika isian form TIDAK sesuai dengan persyaratan
@@ -266,7 +269,7 @@ class AdminController extends BaseController
 		}
 	}
 
-	// function logika delete akun admin
+	/* function logika untuk memproses hapus akun admin */
 	public function deleteAkun($id_akun){
 		$user = $this->akun->getAkunById($id_akun);
 		// jika id_akun tidak terdata di database (karena admin mengisi id_akun yang tidak valid via parameter URL)
@@ -284,6 +287,7 @@ class AdminController extends BaseController
 	}
 
 	// ----------------------------------------- Bagian Mahasiswa ------------------------------------------
+	/* function menampilkan tabel mahasiswa */
 	public function viewAllMahasiswa(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -300,6 +304,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function menampilkan form tambah mahasiswa */
 	public function createMahasiswa(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -319,6 +324,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses tambah mahasiswa */
 	public function insertMahasiswa(){
 		$nama_mhs = $this->request->getPost('nama_mhs');
 		$tempat_lahir = $this->request->getPost('tempat_lahir');
@@ -374,6 +380,7 @@ class AdminController extends BaseController
 		}
 	}
 
+	/* function menampilkan form ubah mahasiswa */
 	public function editMahasiswa($id_mahasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -394,6 +401,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses ubah mahasiswa */
 	public function updateMahasiswa($id_mahasiswa){
 		$mhs = $this->mahasiswa->getMahasiswaById($id_mahasiswa);
 		// jika id_mahasiswa tidak terdata di database (karena admin mengisi id_mahasiswa yang tidak valid via parameter URL)
@@ -458,7 +466,7 @@ class AdminController extends BaseController
 		}
 	}
 
-	// function logika delete akun mahasiswa
+	/* function logika untuk memproses hapus mahasiswa */
 	public function deleteMahasiswa($id_mahasiswa){
 		$mhs = $this->mahasiswa->getMahasiswaById($id_mahasiswa);
 		// jika id_mahasiswa tidak terdata di database (karena admin mengisi id_mahasiswa yang tidak valid via parameter URL)
@@ -475,6 +483,7 @@ class AdminController extends BaseController
 		return redirect()->to(base_url().'/mahasiswa');
 	}
 
+	/* function menampilkan detail data mahasiswa tertentu */
 	public function viewMahasiswa($id_mahasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -494,6 +503,7 @@ class AdminController extends BaseController
 	}
 
 	// ----------------------------------------- Bagian Beasiswa ------------------------------------------
+	/* function menampilkan tabel beasiswa */
 	public function viewAllBeasiswa(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -510,6 +520,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function menampilkan form tambah beasiswa */
 	public function createBeasiswa(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -529,6 +540,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses tambah beasiswa */
 	public function insertBeasiswa(){
 		$nama_beasiswa = $this->request->getPost('nama_beasiswa');
 		$nama_penyelenggara = $this->request->getPost('nama_penyelenggara');
@@ -572,6 +584,7 @@ class AdminController extends BaseController
 		}
 	}
 
+	/* function menampilkan form ubah beasiswa */
 	public function editBeasiswa($id_beasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -592,6 +605,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses ubah beasiswa */
 	public function updateBeasiswa($id_beasiswa){
 		$bsw = $this->beasiswa->getBeasiswaById($id_beasiswa);
 		// jika id_beasiswa tidak terdata di database (karena admin mengisi id_beasiswa yang tidak valid via parameter URL)
@@ -644,7 +658,7 @@ class AdminController extends BaseController
 		}
 	}
 
-	// function logika delete beasiswa
+	/* function logika untuk memproses hapus beasiswa */
 	public function deleteBeasiswa($id_beasiswa){
 		$bsw = $this->beasiswa->getBeasiswaById($id_beasiswa);
 		// jika id_mahasiswa tidak terdata di database (karena admin mengisi id_mahasiswa yang tidak valid via parameter URL)
@@ -672,6 +686,7 @@ class AdminController extends BaseController
 		return redirect()->to(base_url().'/beasiswa');
 	}
 	
+	/* function logika untuk memproses selesaikan beasiswa */
 	public function finishBeasiswa($id_beasiswa){
 		$data = [
 			'status' => 'Selesai',
@@ -683,6 +698,7 @@ class AdminController extends BaseController
 		return redirect()->to(base_url().'/beasiswa');
 	}
 
+	/* function menampilkan detail data beasiswa tertentu */
 	public function viewBeasiswa($id_beasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -702,6 +718,7 @@ class AdminController extends BaseController
 	}
 
 	// ----------------------------------------- Bagian Kriteria ------------------------------------------
+	/* function menampilkan tabel kriteria */
 	public function viewAllKriteria($id_beasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -709,7 +726,7 @@ class AdminController extends BaseController
 			return redirect()->to(base_url().'/authenticate');
 		}
 		
-		$status = $this->beasiswa->cekStatus($id_beasiswa);
+		$status = $this->beasiswa->getStatusByBeasiswa($id_beasiswa);
 		$data = [
 			'kriteria' => $this->kriteria->getKriteriaByBeasiswa($id_beasiswa),
 			'id_beasiswa' => $id_beasiswa,
@@ -721,6 +738,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function menampilkan form tambah kriteria */
 	public function createKriteria($id_beasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -741,6 +759,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses tambah kriteria */
 	public function insertKriteria($id_beasiswa){
 		$nama_kriteria = $this->request->getPost('nama_kriteria');
 		$sifat = $this->request->getPost('sifat');
@@ -782,6 +801,7 @@ class AdminController extends BaseController
 		}
 	}
 
+	/* function menampilkan form ubah kriteria */
 	public function editKriteria($id_beasiswa, $id_kriteria){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -803,6 +823,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses ubah kriteria */
 	public function updateKriteria($id_beasiswa, $id_kriteria){
 		$krt = $this->kriteria->getKriteriaById($id_kriteria);
 		// jika id_kriteria tidak terdata di database (karena admin mengisi id_kriteria yang tidak valid via parameter URL)
@@ -854,7 +875,7 @@ class AdminController extends BaseController
 		}
 	}
 
-	// function logika delete beasiswa
+	/* function logika untuk memproses hapus kriteria */
 	public function deleteKriteria($id_beasiswa, $id_kriteria){
 		$krt = $this->kriteria->getKriteriaById($id_kriteria);
 		// jika id_kriteria tidak terdata di database (karena admin mengisi id_mahasiswa yang tidak valid via parameter URL)
@@ -878,6 +899,7 @@ class AdminController extends BaseController
 	}
 
 	// ----------------------------------------- Bagian Bobot ------------------------------------------
+	/* function menampilkan tabel bobot */
 	public function viewAllBobot($id_beasiswa, $id_kriteria){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -885,7 +907,7 @@ class AdminController extends BaseController
 			return redirect()->to(base_url().'/authenticate');
 		}
 
-		$status = $this->beasiswa->cekStatus($id_beasiswa);
+		$status = $this->beasiswa->getStatusByBeasiswa($id_beasiswa);
 		$data = [
 			'bobot' => $this->bobot->getBobotByKriteria($id_kriteria),
 			'id_beasiswa' => $id_beasiswa,
@@ -898,6 +920,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function menampilkan form tambah bobot */
 	public function createBobot($id_beasiswa, $id_kriteria){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -919,6 +942,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses tambah bobot */
 	public function insertBobot($id_beasiswa, $id_kriteria){
 		$keterangan = $this->request->getPost('keterangan');
 		$value = $this->request->getPost('value');
@@ -960,6 +984,7 @@ class AdminController extends BaseController
 		}
 	}
 
+	/* function menampilkan form ubah bobot */
 	public function editBobot($id_beasiswa, $id_kriteria, $id_bobot){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -982,6 +1007,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses ubah bobot */
 	public function updateBobot($id_beasiswa, $id_kriteria, $id_bobot){
 		$bbt = $this->bobot->getBobotById($id_bobot);
 		// jika id_kriteria tidak terdata di database (karena admin mengisi id_kriteria yang tidak valid via parameter URL)
@@ -1034,7 +1060,7 @@ class AdminController extends BaseController
 		}
 	}
 
-	// function logika delete beasiswa
+	/* function logika untuk memproses hapus bobot */
 	public function deleteBobot($id_beasiswa, $id_kriteria, $id_bobot){
 		$bbt = $this->bobot->getBobotById($id_bobot);
 		// jika id_bobot tidak terdata di database (karena admin mengisi id_bobot yang tidak valid via parameter URL)
@@ -1052,7 +1078,7 @@ class AdminController extends BaseController
 	}
 
 	// ----------------------------------------- Bagian Kecocokan ------------------------------------------
-	// menampilkan tabel beasiswa yang sudah dicocokkan
+	/* function menampilkan tabel beasiswa yang sudah dicocokkan */
 	public function viewBeasiswaPadaKecocokan(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -1069,7 +1095,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
-	// menampilkan form tambah kecocokan
+	/* function menampilkan form tambah kecocokan */
 	public function createKecocokan(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -1091,6 +1117,7 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function logika untuk memproses tambah kecocokan */
 	public function insertKecocokan($method){
 		if($method == 'tampil') {
 			$id_mahasiswa = $this->request->getPost('id_mahasiswa');
@@ -1187,7 +1214,7 @@ class AdminController extends BaseController
         }
 	}
 
-	// menampilkan tabel mahasiswa yang sudah dicocokkan
+	/* function menampilkan tabel mahasiswa yang sudah dicocokkan untuk beasiswa tertentu */
 	public function viewMahasiswaPadaKecocokan($id_beasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -1205,7 +1232,8 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
-	// menampilkan tabel kecocokan yg berisi nama kriteria beserta nilai bobot yg diperoleh oleh suatu mahasiswa
+	/* function menampilkan tabel kecocokan yg berisi nama kriteria beserta nilai bobot 
+	yg diperoleh oleh suatu mahasiswa untuk beasiswa tertentu */
 	public function viewKecocokan($id_beasiswa, $id_mahasiswa){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -1223,6 +1251,7 @@ class AdminController extends BaseController
 	}
 
 	// ----------------------------------------- Bagian Hasil Perhitungan ------------------------------------------
+	/* function menampilkan tabel beasiswa yang sudah dicocokkan, dimana beasiswa tersebut siap untuk ditrigger proses perhitungannya */
 	public function viewBeasiswaPadaHasil(){
 		// jika user belum login
 		if(!isset($_SESSION['isLoggedIn'])) {
@@ -1239,17 +1268,25 @@ class AdminController extends BaseController
 		echo view('templates/footer');
 	}
 
+	/* function menampilkan tabel hasil yang berisi nama mahasiswa dan nilai kelayakannya untuk beasiswa tertentu,
+	sekaligus untuk mentrigger dilakukan perhitungan hasil untuk beasiswa tertentu */
 	public function viewHasilByBeasiswa($id_beasiswa){
+		
+		/* ============== PROSES 1: LAKUKAN PERHITUNGAN DAN INSERT HASILNYA KE DATABASE ============= */
+		
+		// LAKUKAN PROSES PERHITUNGAN UNTUK BEASISWA TERSEBUT
 		$hasil = $this->hasil->getHasilByBeasiswa($id_beasiswa);
 		foreach($hasil as $hsl){
+			// BAGIAN MEN-TRIGGER PROSES PERHITUNGAN AGAR HASILNYA MASUK KE DATABASE:
 			$mhs = $this->hasil->cekMahasiswa($id_beasiswa, $hsl['id_mahasiswa']);
-			
+			// jika suatu mahasiswa belum terdata di tabel hasil untuk beasiswa tertentu
 			if(sizeof($mhs) == 0) {
 				$data = [
 					'id_beasiswa' => $id_beasiswa,
 					'id_mahasiswa' => $hsl['id_mahasiswa'],
 					'nilai' => $hsl['ranking'],
 				];
+				// INSERT DATA MAHASISWA TERSEBUT BESERTA NILAI KELAYAKANNYA UNTUK BEASISWA TERTENTU KE DALAM DATABASE
 				$this->hasil->insertHasil($data);
 			}
 		}
@@ -1260,6 +1297,8 @@ class AdminController extends BaseController
 			return redirect()->to(base_url().'/authenticate');
 		}
 
+		/* ===================== PROSES 2: MENAMPILKAN HASIL PERHITUNGAN KE VIEW ==================== */
+		
 		$data = [
 			'hasil' => $hasil,
 		];

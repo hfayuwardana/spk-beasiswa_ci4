@@ -20,19 +20,23 @@ class MahasiswaController extends BaseController
 		$this->hasil = new HasilModel();
 	}
 
+    /* function menampilkan home mahasiswa */
     public function index(){
         echo view('mahasiswa/home_mhs');
     }
 
-    public function createDataPribadi(){
+    /* function menampilkan form cari data pribadi untuk pengisian nim, nama ibu, dan tgl lahir */
+    public function cariDataPribadi(){
         $data = [
             'validation' => null,
+            // menampilkan pesan error khusus ketika terjadi error
             'pesan' => 'Error! Data Anda tidak ditemukan, harap hubungi Admin jika ini suatu kesalahan.',
         ];
-
+        
         echo view('mahasiswa/verifikasi', $data);
     }
 
+    /* function logika untuk mengecek isian form cari data pribadi, dan menampilkan detail data pribadi mahasiswa ketika isian form sesuai */
     public function viewDataPribadi(){
         $data = [
             'validation' => $this->form_validation,
@@ -41,29 +45,36 @@ class MahasiswaController extends BaseController
             'tgl_lahir' => $this->request->getPost('tgl_lahir'),
         ];
 
+        // jika isian form tidak lengkap
         if($this->form_validation->run($data, 'verifikasi') == FALSE){
             $data = [
                 'validation' => $this->form_validation,
+                // tampilkan pesan untuk meminta user mengisi isian yang kosong
                 'pesan' => 'Error! Harap isi seluruh identitas yang diminta.'
             ];
 
             echo view('mahasiswa/verifikasi', $data);
         }
+        // jika isian form lengkap
         else {
             $mhs = $this->mahasiswa->getMahasiswaByVerif($data);
            
+            // jika isian form match dengan data mahasiswa di database
             if($mhs != null) {
                 $data['mhs'] = $mhs[0];
                 echo view('mahasiswa/detail_mhs', $data);
             }
+            // jika isian form TIDAK match dengan data mahasiswa di database
             else {
+                // pesan danger
                 $this->session->setFlashData('danger', "Error");
-                // redirect ke tampilan tabel mahasiswa
+                // redirect ke tampilan form cari data pribadi
                 return redirect()->to(base_url().'/mhs/verifikasi');
             }
         }
     }
 
+    /* function menampilkan nama-nama beasiswa yang sudah pengumuman */
     public function viewPengumumanBeasiswa(){
         $beasiswa = $this->beasiswa->getBeasiswaForPengumuman();
         
@@ -74,6 +85,7 @@ class MahasiswaController extends BaseController
         echo view('mahasiswa/beasiswa', $data);
     }
 
+    /* function logika untuk memfilter nama beasiswa melalui box pencarian */
     public function cariPengumumanBeasiswa(){
         $katakunci = $this->request->getGet('searchBeasiswa');
         
@@ -86,6 +98,7 @@ class MahasiswaController extends BaseController
         echo view('mahasiswa/beasiswa', $data);
     }
 
+    /* function menampilkan nama-nama mahasiswa yang lolos beasiswa tertentu */
     public function viewMahasiswaLolos($id_beasiswa){
         $kuota = $this->beasiswa->getKuotaByBeasiswa($id_beasiswa);
         $k = $kuota[0]['kuota'];

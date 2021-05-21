@@ -8,7 +8,7 @@ class AkunModel extends Model
     protected $table = 'tb_akun';
     protected $primaryKey = 'id_akun';
     protected $allowedFields = ['username', 'password'];
-
+    
     public function getAllAkun(){
         return $this->findAll();
     }

@@ -26,13 +26,6 @@ class MahasiswaModel extends Model
         ->getResultArray();
     }
 
-    // public function getMahasiswaForInsertKecocokan($id_mahasiswa){
-    //     return $this->db->table($this->table)
-    //     ->select('ipk, semester, penghasilan_ortu, jml_saudara')
-    //     ->where(['id_mahasiswa' => $id_mahasiswa])->get()
-    //     ->getResultArray();
-    // }
-
     public function getMahasiswaForKecocokan($id_beasiswa){
         return $this->db->query("SELECT DISTINCT a.id_mahasiswa, a.nim, a.nama_mhs FROM $this->table a JOIN tb_kecocokan b ON 
         a.id_mahasiswa = b.id_mahasiswa WHERE b.id_beasiswa=$id_beasiswa")

@@ -26,7 +26,7 @@
     </div>
 
     <div class="lolos-box">
-        <h3>Daftar Mahasiswa yang Menerima Beasiswa</h3>
+        <h3>Daftar Mahasiswa Penerima Beasiswa</h3>
         <hr>
         <table class="table">
             <thead>

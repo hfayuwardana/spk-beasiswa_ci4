@@ -31,7 +31,7 @@ class TestMahasiswaController extends FeatureTestCase
     public function testViewDataPribadi(){
         $result = $this->call('post', "/mhs/detailMahasiswa");
         $result->assertOK();
-        // $result->assertSee("Detail Data Mahasiswa"); // error di sini
+        $result->assertSee("Detail Data Mahasiswa"); // error di sini
     }
 
     public function testViewPengumumanBeasiswa(){
